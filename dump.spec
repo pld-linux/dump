@@ -12,7 +12,7 @@ Version:	0.4b33
 Release:	1
 License:	BSD
 Group:		Applications/System
-Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/dump/%{name}-%{version}.tar.gz
 Patch0:		%{name}-sparc.patch
 Patch1:		%{name}-autoconf.patch
 Patch2:		%{name}-use_ncurses.patch
