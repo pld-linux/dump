@@ -100,8 +100,8 @@ MYGRP=`id -rg`; \
 %configure \
 	--enable-rmt \
 	--enable-readline \
-	--with-ccopts="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}" \
-	--with-ldopts="%{!?debug:-s}" \
+	--with-ccopts="%{rpmcflags}" \
+	--with-ldopts="%{rpmldflags}" \
 	--with-binowner=$MYNAME \
 	--with-bingrp=$MYGRP \
 	--with-binmode=755 \
