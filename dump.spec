@@ -13,6 +13,7 @@ Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/dump/%{name}-%{version}.tar.gz
+# Source0-md5:	b78f91cede9c2b383c46905c688845c6
 Patch0:		%{name}-sparc.patch
 Patch1:		%{name}-autoconf.patch
 Patch2:		%{name}-use_ncurses.patch
