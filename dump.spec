@@ -13,7 +13,7 @@ Source:		http://perso.cybercable.fr/pop/dump/%{name}-%{version}.tar.gz
 Patch0:		dump-sparc.patch
 URL:		http://perso.cybercable.fr/pop/dump/
 Requires:	rmt
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The dump package contains both dump and restore. Dump examines files in a
