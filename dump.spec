@@ -1,10 +1,12 @@
 Summary:	Programs for backing up and restoring filesystems
 Summary(de):	Dump/Restore-Backup-System
+Summary(es):	Sistema de copia de seguridad dump/restore
 Summary(fr):	système de sauvegarde dump/restore
 Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
+Summary(pt_BR):	Sistema de backup dump/restore
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
-Version:	0.4b23
+Version:	0.4b24
 Release:	1
 License:	BSD
 Group:		Applications/System
@@ -36,6 +38,10 @@ directory subtrees may also be restored from full or partial backups.
 Sie können mit dump und restore verschiedene Verfahren zum Sichern von
 extended 2 (ext2)-Partitionen ausführen.
 
+%description -l es
+Dump y restore pueden ser usados para hacer copias de seguridad en
+particiones ext2 de varias maneras diferentes.
+
 %description -l fr
 dupm et restore servent à sauvegarder des partitions ext2 de plusieurs
 façons possibles
@@ -49,6 +55,10 @@ operacjê i s³u¿y do odtwarzania plików z kopii bezpieczeñstwa. Program
 restore umo¿liwia odtwarzanie ca³ego archiwum, a tak¿e wybranych
 plików i katalogów.
 
+%description -l pt_BR
+o dump e o restore podem ser usados para fazer backup em partições
+ext2 de várias maneiras diferentes.
+
 %description -l tr
 dump, ext2 bölümlerini birkaç deðiþik þekilde yedeklemek için
 kullanýlýr. restore ise dump ile alýnan yedekleri geri yükleyen
@@ -57,8 +67,10 @@ programdýr.
 %package -n rmt
 Summary:	Provides certain programs with access to remote tape devices
 Summary(de):	Entfernter Zugriff (Netzwerk) auf Magnetbandgeräte
+Summary(es):	Acceso a dispositivo de cinta remoto (en red)
 Summary(fr):	Accès distant (réseau) à un périphérique bande
 Summary(pl):	Program do zdalnego dostêpu do napêdów ta¶m magnetycznych
+Summary(pt_BR):	Acesso a dispositivo de fita remoto (em rede)
 Summary(tr):	Uzak teyp sürücülerine eriþim aracý
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -73,6 +85,10 @@ restoring files from a backup) and tar (an archiving program).
 rmt stellt Remote-Access zu Bandgeräten für Programme wie Dump,
 Restore und tar bereit.
 
+%description -l es -n rmt
+rmt provee acceso remoto a dispositivos de cinta para programas como
+dump, restore y tar.
+
 %description -l fr -n rmt
 rmt offre un accès distant aux périphériques bandes pour des
 programmes comme dump, restore et tar.
@@ -80,6 +96,10 @@ programmes comme dump, restore et tar.
 %description -l pl -n rmt
 Program rmt umo¿liwia zdalny dostêp do napêdów ta¶m magnetycznych dla
 programów takich jak dump, restore czy tar.
+
+%description -l pt_BR -n rmt
+rmt provê acesso remoto a dispositivos de fita para programas como
+dump, restore e tar.
 
 %description -l tr -n rmt
 rmt programý, dump, restore ve tar gibi programlar için teyp
