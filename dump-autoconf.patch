@@ -109,14 +109,9 @@
  	done
  
  distclean::
---- dump-0.4b34/configure.in.orig	2003-04-10 08:25:21.000000000 +0000
-+++ dump-0.4b34/configure.in	2003-11-23 12:46:11.000000000 +0000
-@@ -494,16 +494,11 @@
- dnl
- dnl Check for types
- dnl
-+AC_CHECK_HEADERS(sys/types.h)
- AC_CHECK_TYPE(quad_t, int64_t)
+--- dump-0.4b35/configure.in.orig	2003-04-10 08:25:21.000000000 +0000
++++ dump-0.4b35/configure.in	2003-11-23 12:46:11.000000000 +0000
+@@ -498,12 +498,6 @@
  AC_CHECK_TYPE(u_quad_t, uint64_t)
  
  dnl
