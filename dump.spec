@@ -9,40 +9,42 @@ Release:	1
 Copyright:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Source:		http://perso.cybercable.fr/pop/dump/%{name}-%{version}.tar.gz
+Source0:	http://perso.cybercable.fr/pop/dump/%{name}-%{version}.tar.gz
 Patch0:		dump-sparc.patch
 URL:		http://perso.cybercable.fr/pop/dump/
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The dump package contains both dump and restore. Dump examines files in a
-filesystem, determines which ones need to be backed up, and copies those
-files to a specified disk, tape or other storage medium. The restore
-command performs the inverse function of dump; it can restore a full backup
-of a filesystem. Subsequent incremental backups can then be layered on top
-of the full backup. Single files and directory subtrees may also be
-restored from full or partial backups.
+The dump package contains both dump and restore. Dump examines files
+in a filesystem, determines which ones need to be backed up, and
+copies those files to a specified disk, tape or other storage medium.
+The restore command performs the inverse function of dump; it can
+restore a full backup of a filesystem. Subsequent incremental backups
+can then be layered on top of the full backup. Single files and
+directory subtrees may also be restored from full or partial backups.
 
 %description -l de
-Sie können mit dump und restore verschiedene Verfahren zum Sichern 
-von extended 2 (ext2)-Partitionen ausführen.
+Sie können mit dump und restore verschiedene Verfahren zum Sichern von
+extended 2 (ext2)-Partitionen ausführen.
 
 %description -l fr
 dupm et restore servent à sauvegarder des partitions ext2 de plusieurs
 façons possibles
 
 %description -l pl
-Pakiet dump zawiera programy dump i restore. Dump sprawdza pliki w systemie
-plikowym i okre¶la które powinny byæ zesk³adowane w kopii bezpieczeñstwa an
-nastêpnie kopiuje te pliki na dysk, ta¶mê magnetyczna lub inny nosnik.
-Polecenie restore wykonujê odwrotna operacjê i s³u¿y do odtwarzania plików z
-kopii bezpieczeñstwa. Program restore umo¿liwia odtwarzanie ca³ego archiwum,
-a tak¿e wybranych pl;ików i katalogów.
+Pakiet dump zawiera programy dump i restore. Dump sprawdza pliki w
+systemie plikowym i okre¶la które powinny byæ zesk³adowane w kopii
+bezpieczeñstwa an nastêpnie kopiuje te pliki na dysk, ta¶mê
+magnetyczna lub inny nosnik. Polecenie restore wykonujê odwrotna
+operacjê i s³u¿y do odtwarzania plików z kopii bezpieczeñstwa. Program
+restore umo¿liwia odtwarzanie ca³ego archiwum, a tak¿e wybranych
+pl;ików i katalogów.
 
 %description -l tr
-dump, ext2 bölümlerini birkaç deðiþik þekilde yedeklemek için kullanýlýr.
-restore ise dump ile alýnan yedekleri geri yükleyen programdýr.
+dump, ext2 bölümlerini birkaç deðiþik þekilde yedeklemek için
+kullanýlýr. restore ise dump ile alýnan yedekleri geri yükleyen
+programdýr.
 
 %package -n rmt
 Summary:	Provides certain programs with access to remote tape devices
@@ -53,25 +55,25 @@ Summary(tr):	Uzak teyp sürücülerine eriþim aracý
 Group:		Utilities/System
 
 %description -n rmt
-The rmt utility provides remote access to tape devices for programs like
-dump (a filesystem backup program), restore (a program for restoring files
-from a backup) and tar (an archiving program).
+The rmt utility provides remote access to tape devices for programs
+like dump (a filesystem backup program), restore (a program for
+restoring files from a backup) and tar (an archiving program).
 
 %description -l de -n rmt
-rmt stellt Remote-Access zu Bandgeräten für Programme wie Dump, Restore 
-und tar bereit. 
+rmt stellt Remote-Access zu Bandgeräten für Programme wie Dump,
+Restore und tar bereit.
 
 %description -l fr -n rmt
-rmt offre un accès distant aux périphériques bandes pour des programmes comme
-dump, restore et tar.
+rmt offre un accès distant aux périphériques bandes pour des
+programmes comme dump, restore et tar.
 
 %description -l pl -n rmt
 Program rmt umo¿liwia zdalny dostêp do napêdów ta¶m magnetycznych dla
 programów takich jak dump, restore czy tar.
 
 %description -l tr -n rmt
-rmt programý, dump, restore ve tar gibi programlar için teyp aygýtlarýna
-uzaktan eriþim saðlar.
+rmt programý, dump, restore ve tar gibi programlar için teyp
+aygýtlarýna uzaktan eriþim saðlar.
 
 %prep
 %setup -q
@@ -98,7 +100,7 @@ install -d $RPM_BUILD_ROOT/{etc,sbin,%{_mandir}/man8}
 
 make BINDIR=$RPM_BUILD_ROOT/sbin MANDIR=$RPM_BUILD_ROOT%{_mandir}/man8 install
 
-> $RPM_BUILD_ROOT/etc/dumpdates
+> $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
 
 ln -sf dump $RPM_BUILD_ROOT/sbin/rdump
 ln -sf restore $RPM_BUILD_ROOT/sbin/rrestore
@@ -108,7 +110,7 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/man8/{rdump,rrestore}.8
 echo ".so dump.8" > $RPM_BUILD_ROOT%{_mandir}/man8/rdump.8
 echo ".so restore.8" > $RPM_BUILD_ROOT%{_mandir}/man8/rrestore.8
 
-ln -sf ../sbin/rmt $RPM_BUILD_ROOT/etc/rmt
+ln -sf ../sbin/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
 
 gzip -9nf COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES \
 	$RPM_BUILD_ROOT%{_mandir}/man8/*
@@ -119,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(664,root, disk) %verify(not md5 mtime size) %config(noreplace) /etc/dumpdates
+%attr(664,root, disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
 %attr(6755,root,root) /sbin/dump
 %attr(755,root,root) /sbin/rdump
 %attr(6755,root,root) /sbin/restore
@@ -132,5 +134,5 @@ rm -rf $RPM_BUILD_ROOT
 %files -n rmt
 %defattr(644,root,root,755)
 %attr(755,root,root) /sbin/rmt
-%attr(755,root,root) /etc/rmt
+%attr(755,root,root) %{_sysconfdir}/rmt
 %{_mandir}/man8/rmt.8.gz
