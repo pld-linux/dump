@@ -5,8 +5,8 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
 Version:	0.4b19
-Release:	1
-Copyright:	UCB
+Release:	2
+License:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/%{name}-%{version}.tar.gz
@@ -127,12 +127,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(664,root, disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
-%attr(755,root,root) %{_sbindir}/?dump
-%attr(755,root,root) %{_sbindir}/?restore
-%{_mandir}/man8/dump.8*
-%{_mandir}/man8/rdump.8*
-%{_mandir}/man8/restore.8*
-%{_mandir}/man8/rrestore.8*
+%attr(755,root,root) %{_sbindir}/*dump
+%attr(755,root,root) %{_sbindir}/*restore
+%{_mandir}/man8/*dump.8*
+%{_mandir}/man8/*rdump.8*
 
 %files -n rmt
 %defattr(644,root,root,755)
