@@ -78,27 +78,27 @@ The rmt utility provides remote access to tape devices for programs
 like dump (a filesystem backup program), restore (a program for
 restoring files from a backup) and tar (an archiving program).
 
-%description -l de -n rmt
+%description -n rmt -l de
 rmt stellt Remote-Access zu Bandgeräten für Programme wie Dump,
 Restore und tar bereit.
 
-%description -l es -n rmt
+%description -n rmt -l es
 rmt provee acceso remoto a dispositivos de cinta para programas como
 dump, restore y tar.
 
-%description -l fr -n rmt
+%description -n rmt -l fr
 rmt offre un accès distant aux périphériques bandes pour des
 programmes comme dump, restore et tar.
 
-%description -l pl -n rmt
+%description -n rmt -l pl
 Program rmt umo¿liwia zdalny dostêp do napêdów ta¶m magnetycznych dla
 programów takich jak dump, restore czy tar.
 
-%description -l pt_BR -n rmt
+%description -n rmt -l pt_BR
 rmt provê acesso remoto a dispositivos de fita para programas como
 dump, restore e tar.
 
-%description -l tr -n rmt
+%description -n rmt -l tr
 rmt programý, dump, restore ve tar gibi programlar için teyp
 aygýtlarýna uzaktan eriþim saðlar.
 
