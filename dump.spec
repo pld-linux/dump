@@ -9,13 +9,14 @@ Summary(tr):	dump/restore yedekleme sistemi
 Summary(uk):	Програми для резервного коп╕ювання та в╕дновлення файлових систем
 Name:		dump
 Version:	0.4b36
-Release:	1
+Release:	2
 License:	BSD
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	0662be0643aad6c7167bcede6b9ac298
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-use_ncurses.patch
+Patch2:		%{name}-llh.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	e2fsprogs-devel
@@ -137,6 +138,7 @@ aygЩtlarЩna uzaktan eriЧim saПlar.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__autoconf}
