@@ -5,14 +5,16 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
 Version:	0.4b19
-Release:	2
+Release:	5
 License:	UCB
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/%{name}-%{version}.tar.gz
 Patch0:		%{name}-sparc.patch
 Patch1:		%{name}-autoconf.patch
 Patch2:		%{name}-use_ncurses.patch
+Patch3:		%{name}-bigfile.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.0
@@ -59,8 +61,9 @@ Summary(de):	Entfernter Zugriff (Netzwerk) auf Magnetbandgeräte
 Summary(fr):	Accès distant (réseau) à un périphérique bande
 Summary(pl):	Program do zdalnego dostêpu do napêdów ta¶m magnetycznych
 Summary(tr):	Uzak teyp sürücülerine eriþim aracý
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 
 %description -n rmt
 The rmt utility provides remote access to tape devices for programs
@@ -88,11 +91,12 @@ aygýtlarýna uzaktan eriþim saðlar.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 autoconf
 MYNAME=`id -ru` \
-MYGRP=`id -rg` \
+MYGRP=`id -rg`; \
 %configure \
 	--enable-rmt \
 	--enable-readline \
@@ -117,8 +121,7 @@ install -d $RPM_BUILD_ROOT/{etc,sbin,%{_mandir}/man8}
 
 ln -sf ..%{_sbindir}/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
 
-gzip -9nf COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES \
-	$RPM_BUILD_ROOT%{_mandir}/man8/*
+gzip -9nf COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES
 
 %clean
 rm -rf $RPM_BUILD_ROOT
