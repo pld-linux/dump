@@ -8,15 +8,14 @@ Summary(ru):	Программы для резервного копирования и восстановления файловых сист
 Summary(tr):	dump/restore yedekleme sistemi
 Summary(uk):	Програми для резервного коп╕ювання та в╕дновлення файлових систем
 Name:		dump
-Version:	0.4b37
+Version:	0.4b38
 Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	b2e7ea8bbdd5b91e30561c46d4a7dd40
+# Source0-md5:	c74b3d4367f95566d9fbacc99fff110b
 Patch0:		%{name}-autoconf.patch
-Patch1:		%{name}-use_ncurses.patch
-Patch2:		%{name}-llh.patch
+Patch1:		%{name}-llh.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	bzip2-devel
@@ -139,7 +138,6 @@ aygЩtlarЩna uzaktan eriЧim saПlar.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__autoconf}
