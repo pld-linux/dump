@@ -4,7 +4,7 @@ Summary(fr):	système de sauvegarde dump/restore
 Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
-Version:	0.4b17
+Version:	0.4b18
 Release:	1
 Copyright:	UCB
 Group:		Utilities/System
@@ -12,8 +12,10 @@ Group(pl):	Narzêdzia/System
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/dump-%{version}.tar.gz
 Patch0:		dump-sparc.patch
 Patch1:		dump-autoconf.patch
+Patch2:		dump-use_ncurses.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	e2fsprogs-devel
+BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	readline-devel
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,8 +84,10 @@ aygýtlarýna uzaktan eriþim saðlar.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
+autoconf
 MYNAME=`id -ru` \
 MYGRP=`id -rg` \
 %configure \
