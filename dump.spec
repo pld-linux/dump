@@ -5,20 +5,22 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
 Version:	0.4b18
-Release:	1
+Release:	2
 Copyright:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/dump-%{version}.tar.gz
-Patch0:		dump-sparc.patch
-Patch1:		dump-autoconf.patch
-Patch2:		dump-use_ncurses.patch
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/%{name}-%{version}.tar.gz
+Patch0:		%{name}-sparc.patch
+Patch1:		%{name}-autoconf.patch
+Patch2:		%{name}-use_ncurses.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	readline-devel
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_sbindir	/sbin
 
 %description
 The dump package contains both dump and restore. Dump examines files
@@ -58,6 +60,7 @@ Summary(fr):	Accès distant (réseau) à un périphérique bande
 Summary(pl):	Program do zdalnego dostêpu do napêdów ta¶m magnetycznych
 Summary(tr):	Uzak teyp sürücülerine eriþim aracý
 Group:		Utilities/System
+Group(pl):	Narzêdzia/System
 
 %description -n rmt
 The rmt utility provides remote access to tape devices for programs
@@ -97,7 +100,7 @@ MYGRP=`id -rg` \
 	--with-ldopts="-s" \
 	--with-binowner=$MYNAME \
 	--with-bingrp=$MYGRP \
-	--with-binmode=6755 \
+	--with-binmode=755 \
 	--with-manowner=$MYNAME \
 	--with-mangrp=$MYGRP \
 	--with-manmode=644
@@ -112,7 +115,7 @@ install -d $RPM_BUILD_ROOT/{etc,sbin,%{_mandir}/man8}
 
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
 
-ln -sf ../sbin/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
+ln -sf ..%{_sbindir}/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
 
 gzip -9nf COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES \
 	$RPM_BUILD_ROOT%{_mandir}/man8/*
@@ -124,10 +127,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(664,root, disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
-%attr(6755,root,root) /sbin/dump
-%attr(755,root,root) /sbin/rdump
-%attr(6755,root,root) /sbin/restore
-%attr(755,root,root) /sbin/rrestore
+%attr(755,root,root) %{_sbindir}/?dump
+%attr(755,root,root) %{_sbindir}/?restore
 %{_mandir}/man8/dump.8*
 %{_mandir}/man8/rdump.8*
 %{_mandir}/man8/restore.8*
@@ -135,6 +136,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n rmt
 %defattr(644,root,root,755)
-%attr(755,root,root) /sbin/rmt
+%attr(755,root,root) %{_sbindir}/rmt
 %attr(755,root,root) %{_sysconfdir}/rmt
 %{_mandir}/man8/rmt.8*
