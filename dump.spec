@@ -4,14 +4,14 @@ Summary(fr):	système de sauvegarde dump/restore
 Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
-Version:	0.4b11
-Release:	2
+Version:	0.4b16
+Release:	1
 Copyright:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Source0:	http://perso.cybercable.fr/pop/dump/%{name}-%{version}.tar.gz
+Source0:	http://download.sourceforge.net/dump/dump-%{version}.tar.gz
 Patch0:		dump-sparc.patch
-URL:		http://perso.cybercable.fr/pop/dump/
+URL:		http://dump.sourceforge.net/
 BuildRequires:	e2fsprogs-devel
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
