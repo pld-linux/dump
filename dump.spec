@@ -18,7 +18,7 @@ Patch3:		%{name}-time.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.2
-BuildRequires:	readline-devel >- 4.2
+BuildRequires:	readline-devel >= 4.2
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
