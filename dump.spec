@@ -21,6 +21,7 @@ BuildRequires:	autoconf
 BuildRequires:	bzip2-devel
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.2
+BuildRequires:	openssl-devel >= 0.9.7a
 BuildRequires:	readline-devel >= 4.2
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -134,6 +135,18 @@ aygýtlarýna uzaktan eriþim saðlar.
 õÔÉÌ¦ÔÁ rmt ÎÁÄÁ¤ ×¦ÄÄÁÌÅÎÉÊ ÄÏÓÔÕÐ ÄÏ ÓÔÒ¦ÞËÏ×ÉÈ ÐÒÉÓÔÒÏ§× ÄÅÑËÉÍ
 ÐÒÏÇÒÁÍÁÍ, ÎÁÐÒÉËÌÁÄ dump, restore, tar.
 
+%package -n ermt
+Summary:	Encrypting version of rmt
+Summary(pl):	Wersja rmt z szyfrowaniem
+Group:		Applications/System
+Requires:	openssl >= 0.9.7a
+
+%description -n ermt
+ermt is an encrypting version of rmt.
+
+%description -n ermt -l pl
+ermt to wersja programu rmt z szyfrowaniem.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -144,6 +157,7 @@ aygýtlarýna uzaktan eriþim saðlar.
 MYNAME=`id -ru` \
 MYGRP=`id -rg`; \
 %configure \
+	--enable-ermt \
 	--enable-rmt \
 	--enable-readline \
 	--with-ccopts="%{rpmcflags}" \
@@ -158,14 +172,16 @@ MYGRP=`id -rg`; \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc,sbin,%{_mandir}/man8}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_mandir}/man8,/usr/sbin}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install rmt/ermt $RPM_BUILD_ROOT/usr/sbin
+
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
 
-ln -sf ..%{_sbindir}/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
+ln -sf %{_sbindir}/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -173,7 +189,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES
-%attr(664,root, disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
+%attr(664,root,disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
 %attr(755,root,root) %{_sbindir}/*dump
 %attr(755,root,root) %{_sbindir}/*restore
 %{_mandir}/man8/*dump.8*
@@ -184,3 +200,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/rmt
 %attr(755,root,root) %{_sysconfdir}/rmt
 %{_mandir}/man8/rmt.8*
+
+%files -n ermt
+%defattr(644,root,root,755)
+%attr(755,root,root) /usr/sbin/ermt
