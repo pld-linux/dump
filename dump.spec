@@ -5,7 +5,7 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
 Version:	0.4b21
-Release:	1
+Release:	3
 License:	BSD
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -98,8 +98,8 @@ MYGRP=`id -rg`; \
 %configure \
 	--enable-rmt \
 	--enable-readline \
-	--with-ccopts="$RPM_OPT_FLAGS" \
-	--with-ldopts="-s" \
+	--with-ccopts="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}" \
+	--with-ldopts="%{!?debug:-s}" \
 	--with-binowner=$MYNAME \
 	--with-bingrp=$MYGRP \
 	--with-binmode=755 \
