@@ -4,8 +4,8 @@ Summary(fr):	système de sauvegarde dump/restore
 Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
-Version:	0.4b20
-Release:	2
+Version:	0.4b21
+Release:	1
 License:	BSD
 Group:		Applications/System
 Group(de):	Applikationen/System
