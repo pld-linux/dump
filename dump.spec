@@ -109,7 +109,7 @@ aygýtlarýna uzaktan eriþim saðlar.
 %patch2 -p1
 
 %build
-autoconf
+%{__autoconf}
 MYNAME=`id -ru` \
 MYGRP=`id -rg`; \
 %configure \
