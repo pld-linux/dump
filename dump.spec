@@ -4,7 +4,9 @@ Summary(es):	Sistema de copia de seguridad dump/restore
 Summary(fr):	systХme de sauvegarde dump/restore
 Summary(pl):	Programy do wykonywania kopii bezpieczeЯstwa plikСw
 Summary(pt_BR):	Sistema de backup dump/restore
+Summary(ru):	Программы для резервного копирования и восстановления файловых систем
 Summary(tr):	dump/restore yedekleme sistemi
+Summary(uk):	Програми для резервного коп╕ювання та в╕дновлення файлових систем
 Name:		dump
 Version:	0.4b32
 Release:	1
@@ -58,10 +60,29 @@ plikСw i katalogСw.
 o dump e o restore podem ser usados para fazer backup em partiГУes
 ext2 de vАrias maneiras diferentes.
 
+%description -l ru
+Пакет dump содержит dump и restore. Dump просматривает файлы в
+файловой системе, определяет какие из них нуждаются в резервном
+копировании и копирует эти файлы на указанный диск, ленту или другой
+носитель. Команда restore выполняет обратную функцию - она может
+восстановить всю файловую систему из резервной копии. Последующие
+инкрементальные резервные копии могут накладываться на полную копию.
+Также из полной или частичной резервной копии могут быть восстановлены
+отдельные файлы и деревья каталогов.
+
 %description -l tr
 dump, ext2 bЖlЭmlerini birkaГ deПiЧik Чekilde yedeklemek iГin
 kullanЩlЩr. restore ise dump ile alЩnan yedekleri geri yЭkleyen
 programdЩr.
+
+%description -l uk
+Пакет dump м╕стить dump та restore. Dump прогляда╓ файли у файлов╕й
+систем╕, вир╕шу╓ як╕ з них п╕длягають резервному коп╕юванню та коп╕ю╓
+ц╕ файли на визначений диск, стр╕чку або ╕нший нос╕й. Команда restore
+викону╓ зворотню функц╕ю - вона може в╕дновити всю файлову систему з
+резервно╖ коп╕╖. Наступн╕ ╕нкрементальн╕ резервн╕ коп╕╖ можуть
+накладатися на повну коп╕ю. Також з повно╖ або частково╖ резервно╖
+коп╕╖ можуть бути в╕дновлен╕ окрем╕ файли та дерева каталог╕в.
 
 %package -n rmt
 Summary:	Provides certain programs with access to remote tape devices
@@ -70,7 +91,9 @@ Summary(es):	Acceso a dispositivo de cinta remoto (en red)
 Summary(fr):	AccХs distant (rИseau) Ю un pИriphИrique bande
 Summary(pl):	Program do zdalnego dostЙpu do napЙdСw ta╤m magnetycznych
 Summary(pt_BR):	Acesso a dispositivo de fita remoto (em rede)
+Summary(ru):	Программы для доступа к удаленным ленточным устройствам
 Summary(tr):	Uzak teyp sЭrЭcЭlerine eriЧim aracЩ
+Summary(uk):	Програми для доступу до в╕ддалених стр╕чкових пристро╖в
 Group:		Applications/System
 
 %description -n rmt
@@ -98,9 +121,17 @@ programСw takich jak dump, restore czy tar.
 rmt provЙ acesso remoto a dispositivos de fita para programas como
 dump, restore e tar.
 
+%description -n rmt -l ru
+Утилита rmt предоставляет удаленный доступ к ленточным устройствам
+некоторым программам, например dump, restore, tar.
+
 %description -n rmt -l tr
 rmt programЩ, dump, restore ve tar gibi programlar iГin teyp
 aygЩtlarЩna uzaktan eriЧim saПlar.
+
+%description -n rmt -l uk
+Утил╕та rmt нада╓ в╕ддалений доступ до стр╕чкових пристро╖в деяким
+програмам, наприклад dump, restore, tar.
 
 %prep
 %setup -q
