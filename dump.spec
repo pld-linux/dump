@@ -10,8 +10,6 @@ Version:	0.4b25
 Release:	1
 License:	BSD
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/%{name}-%{version}.tar.gz
 Patch0:		%{name}-sparc.patch
 Patch1:		%{name}-autoconf.patch
@@ -74,8 +72,6 @@ Summary(pl):	Program do zdalnego dostêpu do napêdów ta¶m magnetycznych
 Summary(pt_BR):	Acesso a dispositivo de fita remoto (em rede)
 Summary(tr):	Uzak teyp sürücülerine eriþim aracý
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 
 %description -n rmt
 The rmt utility provides remote access to tape devices for programs
