@@ -97,21 +97,21 @@ echo ".so restore.8" > $RPM_BUILD_ROOT%{_mandir}/man8/rrestore.8
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(0644, root, root, 0755)
+%defattr(0644,root,root, 0755)
 %doc COPYRIGHT KNOWNBUGS THANKS CHANGES dump-0.3.announce
-%attr(0664, root, disk)	%verify(not md5 mtime size) %config(noreplace) /etc/dumpdates
-%attr(6755, root, root) /sbin/dump
-%attr(0755, root, root) /sbin/rdump
-%attr(6755, root, root) /sbin/restore
-%attr(0755, root, root) /sbin/rrestore
-%attr(0755, root,  man) %{_mandir}/man8/dump.8
-%attr(0755, root,  man) %{_mandir}/man8/rdump.8
-%attr(0755, root,  man) %{_mandir}/man8/restore.8
-%attr(0755, root,  man) %{_mandir}/man8/rrestore.8
+%attr(0664,root, disk)	%verify(not md5 mtime size) %config(noreplace) /etc/dumpdates
+%attr(6755,root,root) /sbin/dump
+%attr(0755,root,root) /sbin/rdump
+%attr(6755,root,root) /sbin/restore
+%attr(0755,root,root) /sbin/rrestore
+%attr(0755,root,  man) %{_mandir}/man8/dump.8
+%attr(0755,root,  man) %{_mandir}/man8/rdump.8
+%attr(0755,root,  man) %{_mandir}/man8/restore.8
+%attr(0755,root,  man) %{_mandir}/man8/rrestore.8
 
 %files -n rmt
-%attr(0755, root, root) /sbin/rmt
-%attr(0755, root,  man) %{_mandir}/man8/rmt.8 
+%attr(0755,root,root) /sbin/rmt
+%attr(0755,root,  man) %{_mandir}/man8/rmt.8 
 
 %changelog
 * Tue Sep 15 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
