@@ -8,7 +8,7 @@ Version:	0.4b11
 Release:	1
 Copyright:	UCB
 Group:		Utilities/System
-Group(pl):	Narzedzia/System
+Group(pl):	Narzêdzia/System
 Source:		http://perso.cybercable.fr/pop/dump/%{name}-%{version}.tar.gz
 Patch0:		dump-sparc.patch
 URL:		http://perso.cybercable.fr/pop/dump/
