@@ -103,7 +103,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc,sbin,%{_mandir}/man8}
 
-make install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
