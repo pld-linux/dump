@@ -5,8 +5,8 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
 Version:	0.4b20
-Release:	1
-License:	UCB
+Release:	2
+License:	BSD
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
