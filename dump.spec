@@ -15,7 +15,7 @@ Patch2:      dump-0.3-glibc.patch
 Patch3:      dump-0.3-sparc.patch
 Patch4:      dump-0.3-kernel.patch
 Requires:    rmt
-BuildRoot:   /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 dump and restore can be used to backup extended 2 (ext2) partitions in
