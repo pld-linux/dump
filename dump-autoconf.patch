@@ -109,9 +109,14 @@
  	done
  
  distclean::
---- dump-0.4b33/configure.in.orig	Tue Feb 11 23:16:20 2003
-+++ dump-0.4b33/configure.in	Tue Feb 11 23:17:34 2003
-@@ -460,12 +460,6 @@
+--- dump-0.4b34/configure.in.orig	2003-04-10 08:25:21.000000000 +0000
++++ dump-0.4b34/configure.in	2003-11-23 12:46:11.000000000 +0000
+@@ -494,16 +494,11 @@
+ dnl
+ dnl Check for types
+ dnl
++AC_CHECK_HEADERS(sys/types.h)
+ AC_CHECK_TYPE(quad_t, int64_t)
  AC_CHECK_TYPE(u_quad_t, uint64_t)
  
  dnl
@@ -124,7 +129,7 @@
  dnl Create directories
  dnl
  test -d compat || mkdir compat
-@@ -474,4 +468,5 @@
+@@ -512,4 +507,5 @@
  dnl
  dnl Output files
  dnl
@@ -139,4 +144,3 @@
 +++ dump-0.4b32/dump/rdump.8    Mon Nov 18 15:51:55 2002
 @@ -0,0 +1 @@
 +.so dump.8
-
