@@ -9,7 +9,7 @@ Release:	1
 Copyright:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Source0:	http://download.sourceforge.net/dump/dump-%{version}.tar.gz
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/dump/dump-%{version}.tar.gz
 Patch0:		dump-sparc.patch
 Patch1:		dump-autoconf.patch
 URL:		http://dump.sourceforge.net/
