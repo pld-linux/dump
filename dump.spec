@@ -97,7 +97,7 @@ MYGRP=`id -rg` \
 	--with-manowner=$MYNAME \
 	--with-mangrp=$MYGRP \
 	--with-manmode=644
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
