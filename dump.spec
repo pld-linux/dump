@@ -82,7 +82,7 @@ install -d $RPM_BUILD_ROOT/{etc,sbin,usr/man/man8}
 
 MYNAME=`id -u`
 MYGRP=`id -g`
-make BINDIR=$RPM_BUILD_ROOT/sbin MANDIR=$RPM_BUILD_ROOT/usr/man/man8 \
+make BINDIR=$RPM_BUILD_ROOT/sbin MANDIR=$RPM_BUILD_ROOT%{_mandir}/man8 \
 BINOWN=$MYNAME BINGRP=$MYGRP MANOWN=$MYNAME MANGRP=$MYGRP install
 
 > $RPM_BUILD_ROOT/etc/dumpdates
@@ -90,8 +90,8 @@ BINOWN=$MYNAME BINGRP=$MYGRP MANOWN=$MYNAME MANGRP=$MYGRP install
 ln -sf dump $RPM_BUILD_ROOT/sbin/rdump
 ln -sf restore $RPM_BUILD_ROOT/sbin/rrestore
 
-echo ".so dump.8" > $RPM_BUILD_ROOT/usr/man/man8/rdump.8
-echo ".so restore.8" > $RPM_BUILD_ROOT/usr/man/man8/rrestore.8
+echo ".so dump.8" > $RPM_BUILD_ROOT%{_mandir}/man8/rdump.8
+echo ".so restore.8" > $RPM_BUILD_ROOT%{_mandir}/man8/rrestore.8
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -104,14 +104,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755, root, root) /sbin/rdump
 %attr(6755, root, root) /sbin/restore
 %attr(0755, root, root) /sbin/rrestore
-%attr(0755, root,  man) /usr/man/man8/dump.8
-%attr(0755, root,  man) /usr/man/man8/rdump.8
-%attr(0755, root,  man) /usr/man/man8/restore.8
-%attr(0755, root,  man) /usr/man/man8/rrestore.8
+%attr(0755, root,  man) %{_mandir}/man8/dump.8
+%attr(0755, root,  man) %{_mandir}/man8/rdump.8
+%attr(0755, root,  man) %{_mandir}/man8/restore.8
+%attr(0755, root,  man) %{_mandir}/man8/rrestore.8
 
 %files -n rmt
 %attr(0755, root, root) /sbin/rmt
-%attr(0755, root,  man) /usr/man/man8/rmt.8 
+%attr(0755, root,  man) %{_mandir}/man8/rmt.8 
 
 %changelog
 * Tue Sep 15 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
