@@ -5,7 +5,7 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
 Version:	0.4b11
-Release:	1
+Release:	2
 Copyright:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
