@@ -1,0 +1,115 @@
+diff -Nru dump-0.4b17/MCONFIG.in dump-0.4b17.new/MCONFIG.in
+--- dump-0.4b17/MCONFIG.in	Thu Jun  1 22:49:32 2000
++++ dump-0.4b17.new/MCONFIG.in	Sat Jun  3 09:33:50 2000
+@@ -24,8 +24,8 @@
+ INSTALLBIN=	$(INSTALL) -o $(BINOWNER) -g $(BINGRP) -m $(BINMODE)
+ INSTALLMAN=	$(INSTALL) -o $(MANOWNER) -g $(MANGRP) -m $(MANMODE)
+ 
+-BINDIR=		/sbin
+-MANDIR=		/usr/man/man8
++sbindir=	/sbin
++mandir=		@mandir@
+ 
+ DUMPDATESPATH=	@DUMPDATESPATH@
+ #
+diff -Nru dump-0.4b17/dump/Makefile.in dump-0.4b17.new/dump/Makefile.in
+--- dump-0.4b17/dump/Makefile.in	Mon Oct 11 15:31:10 1999
++++ dump-0.4b17.new/dump/Makefile.in	Sat Jun  3 09:39:02 2000
+@@ -11,12 +11,10 @@
+ DEPLIBS=	../compat/lib/libcompat.a
+ 
+ PROG=		dump
+-LINKS=		${BINDIR}/dump ${BINDIR}/rdump
+ SRCS=		itime.c main.c optr.c tape.c traverse.c unctime.c
+ OBJS=		itime.o main.o optr.o tape.o traverse.o unctime.o \
+ 		../common/dumprmt.o
+-MAN8=		dump.8
+-MLINKS=		dump.8 $(MANDIR)/rdump.8
++MAN8=		dump.8 rdump.8
+ 
+ all::		$(PROG) dump.8
+ 
+@@ -29,18 +27,10 @@
+ 	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
+ 
+ install::	all
+-	$(INSTALLBIN) $(PROG) $(BINDIR)
+-	$(INSTALLMAN) $(srcdir)/$(MAN8) $(MANDIR)
+-	@set $(LINKS) $(MLINKS); \
+-	while test $$# -ge 2; do \
+-		l=$(DESTDIR)$$1; \
+-		shift; \
+-		t=$(DESTDIR)$$1; \
+-		shift; \
+-		echo $$t -\> $$l; \
+-		$(RM) -f $$t; \
+-		$(LN_S) $$l $$t; \
+-	done; true
++	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)/man8
++	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
++	$(LN_S) dump $(DESTDIR)$(sbindir)/rdump
++	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)/man8
+ 
+ clean::
+ 	$(RM) -f $(PROG) \#* *.s *.o *.a *~ core dump.8
+diff -Nru dump-0.4b17/dump/rdump.8 dump-0.4b17.new/dump/rdump.8
+--- dump-0.4b17/dump/rdump.8	Thu Jan  1 01:00:00 1970
++++ dump-0.4b17.new/dump/rdump.8	Sat Jun  3 09:30:39 2000
+@@ -0,0 +1 @@
++.so dump.8
+diff -Nru dump-0.4b17/restore/Makefile.in dump-0.4b17.new/restore/Makefile.in
+--- dump-0.4b17/restore/Makefile.in	Mon May 29 16:17:37 2000
++++ dump-0.4b17.new/restore/Makefile.in	Sat Jun  3 09:37:23 2000
+@@ -16,8 +16,7 @@
+ 		utilities.c
+ OBJS=		dirs.o interactive.o main.o restore.o symtab.o tape.o \
+ 		utilities.o ../common/dumprmt.o
+-MAN8=		restore.8
+-MLINKS=		restore.8 $(MANDIR)/rrestore.8
++MAN8=		restore.8 rrestore.8
+ 
+ all::		$(PROG) restore.8
+ 
+@@ -29,18 +28,10 @@
+ 	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
+ 
+ install::	all
+-	$(INSTALLBIN) $(PROG) $(BINDIR)
+-	$(INSTALLMAN) $(srcdir)/$(MAN8) $(MANDIR)
+-	@set $(LINKS) $(MLINKS); \
+-	while test $$# -ge 2; do \
+-		l=$(DESTDIR)$$1; \
+-		shift; \
+-		t=$(DESTDIR)$$1; \
+-		shift; \
+-		echo $$t -\> $$l; \
+-		$(RM) -f $$t; \
+-		$(LN_S) $$l $$t; \
+-	done; true
++	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)/man8
++	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
++	$(LN_S) restore $(DESTDIR)$(sbindir)/rrestore
++	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)/man8
+ 
+ clean::
+ 	$(RM) -f $(PROG) \#* *.s *.o *.a *~ core restore.8
+diff -Nru dump-0.4b17/restore/rrestore.8 dump-0.4b17.new/restore/rrestore.8
+--- dump-0.4b17/restore/rrestore.8	Thu Jan  1 01:00:00 1970
++++ dump-0.4b17.new/restore/rrestore.8	Sat Jun  3 09:30:09 2000
+@@ -0,0 +1 @@
++.so restore.8
+diff -Nru dump-0.4b17/rmt/Makefile.in dump-0.4b17.new/rmt/Makefile.in
+--- dump-0.4b17/rmt/Makefile.in	Mon Oct 11 15:31:14 1999
++++ dump-0.4b17.new/rmt/Makefile.in	Sat Jun  3 09:39:22 2000
+@@ -30,8 +30,9 @@
+ 	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
+ 
+ install::	all
+-	$(INSTALLBIN) $(PROG) $(BINDIR)
+-	$(INSTALLMAN) $(srcdir)/$(MAN8) $(MANDIR)
++	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)/man8
++	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
++	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)/man8
+ 
+ clean::
+ 	rm -f $(PROG) \#* *.s *.o *.a *~ core rmt.8
