@@ -5,7 +5,7 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
 Version:	0.4b21
-Release:	4
+Release:	5
 License:	BSD
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -17,8 +17,8 @@ Patch2:		%{name}-use_ncurses.patch
 Patch3:		%{name}-time.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	e2fsprogs-devel
-BuildRequires:	ncurses-devel >= 5.0
-BuildRequires:	readline-devel
+BuildRequires:	ncurses-devel >= 5.2
+BuildRequires:	readline-devel >- 4.2
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
