@@ -12,6 +12,7 @@ Group(pl):	Narzêdzia/System
 Source0:	http://perso.cybercable.fr/pop/dump/%{name}-%{version}.tar.gz
 Patch0:		dump-sparc.patch
 URL:		http://perso.cybercable.fr/pop/dump/
+BuildRequires:	e2fsprogs-devel
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
