@@ -130,7 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/*dump
 %attr(755,root,root) %{_sbindir}/*restore
 %{_mandir}/man8/*dump.8*
-%{_mandir}/man8/*rdump.8*
+%{_mandir}/man8/*restore.8*
 
 %files -n rmt
 %defattr(644,root,root,755)
