@@ -1,106 +1,6 @@
-diff -Nur dump-0.4b32.orig/MCONFIG.in dump-0.4b32/MCONFIG.in
---- dump-0.4b32.orig/MCONFIG.in	Fri Nov 15 11:03:37 2002
-+++ dump-0.4b32/MCONFIG.in	Mon Nov 18 15:51:55 2002
-@@ -1,7 +1,5 @@
- VPATH=		$(srcdir)
- 
--top_builddir=	@top_builddir@
--
- VERSION=	0.4b32
- DATE=		November 15, 2002
- 
-@@ -26,8 +24,8 @@
- 
- prefix=		@prefix@
- exec_prefix=	@exec_prefix@
--SBINDIR=	@sbindir@
--MANDIR=		@mandir@/man8
-+sbindir=	@sbindir@
-+mandir=		@mandir@
- 
- DUMPDATESPATH=	@DUMPDATESPATH@
- #
-diff -Nur dump-0.4b32.orig/Makefile.in dump-0.4b32/Makefile.in
---- dump-0.4b32.orig/Makefile.in	Tue Nov  2 10:35:55 1999
-+++ dump-0.4b32/Makefile.in	Mon Nov 18 15:52:06 2002
-@@ -1,3 +1,4 @@
-+top_builddir=	.
- srcdir=		@srcdir@
- top_srcdir=	@top_srcdir@
- 
-@@ -8,7 +9,7 @@
- 
- all clean install dep depend realclean distclean::
- 	for i in $(SUBDIRS); do \
--		(cd $$i && $(MAKE) $@) || exit 1; \
-+		(cd $$i && $(MAKE) DESTDIR=$(DESTDIR) $@) || exit 1; \
- 	done
- 
- distclean::
-diff -Nur dump-0.4b32.orig/common/Makefile.in dump-0.4b32/common/Makefile.in
---- dump-0.4b32.orig/common/Makefile.in	Mon Oct 11 15:31:08 1999
-+++ dump-0.4b32/common/Makefile.in	Mon Nov 18 15:51:55 2002
-@@ -1,5 +1,6 @@
- # $Id$
- 
-+top_builddir=	..
- top_srcdir=	@top_srcdir@
- srcdir=		@srcdir@
- 
-diff -Nur dump-0.4b32.orig/compat/include/Makefile.in dump-0.4b32/compat/include/Makefile.in
---- dump-0.4b32.orig/compat/include/Makefile.in	Wed Oct 13 11:57:18 1999
-+++ dump-0.4b32/compat/include/Makefile.in	Mon Nov 18 15:51:55 2002
-@@ -1,5 +1,6 @@
- # $Id$
- 
-+top_builddir=	../..
- top_srcdir=	@top_srcdir@
- srcdir=		@srcdir@
- 
-diff -Nur dump-0.4b32.orig/compat/lib/Makefile.in dump-0.4b32/compat/lib/Makefile.in
---- dump-0.4b32.orig/compat/lib/Makefile.in	Mon Jul 29 14:00:33 2002
-+++ dump-0.4b32/compat/lib/Makefile.in	Mon Nov 18 15:51:55 2002
-@@ -1,5 +1,6 @@
- # $Id$
- 
-+top_builddir=	../..
- top_srcdir=	@top_srcdir@
- srcdir=		@srcdir@
- 
-diff -Nur dump-0.4b32.orig/configure.in dump-0.4b32/configure.in
---- dump-0.4b32.orig/configure.in	Mon Feb 25 14:54:52 2002
-+++ dump-0.4b32/configure.in	Mon Nov 18 15:51:55 2002
-@@ -433,12 +433,6 @@
- AC_CHECK_TYPE(u_quad_t, __u64)
- 
- dnl
--dnl Compute top_buildir
--dnl
--top_builddir=`cd .; pwd`
--AC_SUBST(top_builddir)
--
--dnl
- dnl Create directories
- dnl
- test -d compat || mkdir compat
-@@ -447,4 +441,5 @@
- dnl
- dnl Output files
- dnl
--AC_OUTPUT(MCONFIG Makefile common/Makefile compat/include/Makefile compat/lib/Makefile dump/Makefile restore/Makefile $RMTMAKEFILE)
-+AC_CONFIG_FILES([MCONFIG Makefile common/Makefile compat/include/Makefile compat/lib/Makefile dump/Makefile restore/Makefile $RMTMAKEFILE])
-+AC_OUTPUT
-diff -Nur dump-0.4b32.orig/dump/Makefile.in dump-0.4b32/dump/Makefile.in
---- dump-0.4b32.orig/dump/Makefile.in	Wed Jan  2 11:13:15 2002
-+++ dump-0.4b32/dump/Makefile.in	Mon Nov 18 15:51:55 2002
-@@ -1,5 +1,6 @@
- # $Id$
- 
-+top_builddir=	..
- top_srcdir=	@top_srcdir@
- srcdir=		@srcdir@
- 
-@@ -12,12 +13,10 @@
+--- dump-0.4b33/dump/Makefile.in.orig	Tue Feb 11 23:18:12 2003
++++ dump-0.4b33/dump/Makefile.in	Tue Feb 11 23:19:54 2003
+@@ -13,12 +13,10 @@
  
  PROG=		dump
  RPROG=		rdump
@@ -114,7 +14,7 @@ diff -Nur dump-0.4b32.orig/dump/Makefile.in dump-0.4b32/dump/Makefile.in
  
  all::		$(PROG) $(MAN8)
  
-@@ -30,11 +29,10 @@
+@@ -31,11 +29,11 @@
  	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
  
  install::	all
@@ -123,33 +23,17 @@ diff -Nur dump-0.4b32.orig/dump/Makefile.in dump-0.4b32/dump/Makefile.in
 -	$(INSTALLMAN) $(MAN8) $(MANDIR)
 -	cd $(SBINDIR) && $(RM) -f $(RPROG) && $(LN_S) $(PROG) $(RPROG)
 -	cd $(MANDIR) && $(RM) -f $(RMAN8) && $(LN_S) $(MAN8) $(RMAN8)
-+	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)/man8
++	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)
 +	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
 +	$(LN_S) dump $(DESTDIR)$(sbindir)/rdump
-+	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)/man8
++	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)
++
  
  clean::
  	$(RM) -f $(PROG) $(MAN8) \#* *.s *.o *.a *~ core
-diff -Nur dump-0.4b32.orig/dump/rdump.8 dump-0.4b32/dump/rdump.8
---- dump-0.4b32.orig/dump/rdump.8	Thu Jan  1 01:00:00 1970
-+++ dump-0.4b32/dump/rdump.8	Mon Nov 18 15:51:55 2002
-@@ -0,0 +1 @@
-+.so dump.8
-diff -Nur dump-0.4b32.orig/restore/Makefile.in dump-0.4b32/restore/Makefile.in
---- dump-0.4b32.orig/restore/Makefile.in	Wed Jan  2 11:13:16 2002
-+++ dump-0.4b32/restore/Makefile.in	Mon Nov 18 15:51:55 2002
-@@ -1,7 +1,10 @@
- # $Id$
- 
-+top_builddir=	..
- top_srcdir=	@top_srcdir@
- srcdir=		@srcdir@
-+mandir=		@mandir@
-+sbindir=	@sbindir@
- 
- @MCONFIG@
- 
-@@ -17,8 +20,7 @@
+--- dump-0.4b33/restore/Makefile.in.orig	Tue Feb 11 23:21:04 2003
++++ dump-0.4b33/restore/Makefile.in	Tue Feb 11 23:21:57 2003
+@@ -18,8 +18,7 @@
  		utilities.c
  OBJS=		dirs.o interactive.o main.o restore.o symtab.o tape.o \
  		utilities.o ../common/dumprmt.o
@@ -159,7 +43,7 @@ diff -Nur dump-0.4b32.orig/restore/Makefile.in dump-0.4b32/restore/Makefile.in
  
  all::		$(PROG) $(MAN8)
  
-@@ -30,11 +32,10 @@
+@@ -31,11 +30,11 @@
  	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
  
  install::	all
@@ -168,42 +52,91 @@ diff -Nur dump-0.4b32.orig/restore/Makefile.in dump-0.4b32/restore/Makefile.in
 -	$(INSTALLMAN) $(MAN8) $(MANDIR)
 -	cd $(SBINDIR) && $(RM) -f $(RPROG) && $(LN_S) $(PROG) $(RPROG)
 -	cd $(MANDIR) && $(RM) -f $(RMAN8) && $(LN_S) $(MAN8) $(RMAN8)
-+	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)/man8
++	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)
 +	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
 +	$(LN_S) restore $(DESTDIR)$(sbindir)/rrestore
-+	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)/man8
++	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)
++
  
  clean::
  	$(RM) -f $(PROG) $(MAN8) \#* *.s *.o *.a *~ core
-diff -Nur dump-0.4b32.orig/restore/rrestore.8 dump-0.4b32/restore/rrestore.8
---- dump-0.4b32.orig/restore/rrestore.8	Thu Jan  1 01:00:00 1970
-+++ dump-0.4b32/restore/rrestore.8	Mon Nov 18 15:51:55 2002
-@@ -0,0 +1 @@
-+.so restore.8
-diff -Nur dump-0.4b32.orig/rmt/Makefile.in dump-0.4b32/rmt/Makefile.in
---- dump-0.4b32.orig/rmt/Makefile.in	Mon Jul 29 14:00:34 2002
-+++ dump-0.4b32/rmt/Makefile.in	Mon Nov 18 15:51:55 2002
-@@ -1,7 +1,10 @@
- # $Id$
- 
-+top_builddir=	..
+--- dump-0.4b33/rmt/Makefile.in.orig	Tue Feb 11 23:22:03 2003
++++ dump-0.4b33/rmt/Makefile.in	Tue Feb 11 23:23:07 2003
+@@ -3,6 +3,8 @@
  top_srcdir=	@top_srcdir@
  srcdir=		@srcdir@
+ top_builddir=	..
 +sbindir=	@sbindir@
 +mandir=		@mandir@
  
  @MCONFIG@
  
-@@ -25,9 +28,9 @@
+@@ -26,9 +28,10 @@
  	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
  
  install::	all
 -	$(INSTALL) -d $(SBINDIR) $(MANDIR)
 -	$(INSTALLBIN) $(PROG) $(SBINDIR)
 -	$(INSTALLMAN) $(srcdir)/$(MAN8) $(MANDIR)
-+	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)/man8
++	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)
 +	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
-+	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)/man8
++	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)
++	
  
  clean::
  	rm -f $(PROG) \#* *.s *.o *.a *~ core rmt.8
+--- dump-0.4b33/MCONFIG.in.orig	Tue Feb 11 23:11:18 2003
++++ dump-0.4b33/MCONFIG.in	Tue Feb 11 23:11:43 2003
+@@ -22,8 +22,8 @@
+ 
+ prefix=		@prefix@
+ exec_prefix=	@exec_prefix@
+-SBINDIR=	@sbindir@
+-MANDIR=		@mandir@/man8
++sbindir=	@sbindir@
++mandir=		@mandir@/man8
+ 
+ DUMPDATESPATH=	@DUMPDATESPATH@
+ #
+--- dump-0.4b33/Makefile.in.orig	Tue Feb 11 23:14:05 2003
++++ dump-0.4b33/Makefile.in	Tue Feb 11 23:14:42 2003
+@@ -9,7 +9,7 @@
+ 
+ all clean install dep depend realclean distclean::
+ 	for i in $(SUBDIRS); do \
+-		(cd $$i && $(MAKE) $@) || exit 1; \
++		(cd $$i && $(MAKE) DESTDIR=$(DESTDIR) $@) || exit 1; \
+ 	done
+ 
+ distclean::
+--- dump-0.4b33/configure.in.orig	Tue Feb 11 23:16:20 2003
++++ dump-0.4b33/configure.in	Tue Feb 11 23:17:34 2003
+@@ -460,12 +460,6 @@
+ AC_CHECK_TYPE(u_quad_t, uint64_t)
+ 
+ dnl
+-dnl Compute top_buildir
+-dnl
+-top_builddir=`cd .; pwd`
+-AC_SUBST(top_builddir)
+-
+-dnl
+ dnl Create directories
+ dnl
+ test -d compat || mkdir compat
+@@ -474,4 +468,5 @@
+ dnl
+ dnl Output files
+ dnl
+-AC_OUTPUT(MCONFIG Makefile common/Makefile compat/include/Makefile compat/lib/Makefile dump/Makefile restore/Makefile $RMTMAKEFILE)
++AC_CONFIG_FILES([MCONFIG Makefile common/Makefile compat/include/Makefile compat/lib/Makefile dump/Makefile restore/Makefile $RMTMAKEFILE])
++AC_OUTPUT
+--- dump-0.4b33.orig/restore/rrestore.8 Thu Jan  1 01:00:00 1970
++++ dump-0.4b33/restore/rrestore.8      Mon Nov 18 15:51:55 2002
+@@ -0,0 +1 @@
++.so restore.8
+--- dump-0.4b32.orig/dump/rdump.8       Thu Jan  1 01:00:00 1970
++++ dump-0.4b32/dump/rdump.8    Mon Nov 18 15:51:55 2002
+@@ -0,0 +1 @@
++.so dump.8
+
