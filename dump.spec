@@ -136,14 +136,12 @@ install -d $RPM_BUILD_ROOT/{etc,sbin,%{_mandir}/man8}
 
 ln -sf ..%{_sbindir}/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
 
-gzip -9nf COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES
 %attr(664,root, disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
 %attr(755,root,root) %{_sbindir}/*dump
 %attr(755,root,root) %{_sbindir}/*restore
