@@ -8,12 +8,12 @@ Summary(ru):	Программы для резервного копирования и восстановления файловых сист
 Summary(tr):	dump/restore yedekleme sistemi
 Summary(uk):	Програми для резервного коп╕ювання та в╕дновлення файлових систем
 Name:		dump
-Version:	0.4b36
-Release:	2
+Version:	0.4b37
+Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	0662be0643aad6c7167bcede6b9ac298
+# Source0-md5:	b2e7ea8bbdd5b91e30561c46d4a7dd40
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-use_ncurses.patch
 Patch2:		%{name}-llh.patch
