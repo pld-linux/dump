@@ -4,8 +4,8 @@ Summary(fr):	système de sauvegarde dump/restore
 Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
-Version:	0.4b18
-Release:	2
+Version:	0.4b19
+Release:	1
 Copyright:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
