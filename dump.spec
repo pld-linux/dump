@@ -19,6 +19,7 @@ Patch1:		%{name}-use_ncurses.patch
 Patch2:		%{name}-llh.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf
+BuildRequires:	bzip2-devel
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	readline-devel >= 4.2
