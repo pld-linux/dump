@@ -17,6 +17,7 @@ Patch0:		%{name}-sparc.patch
 Patch1:		%{name}-autoconf.patch
 Patch2:		%{name}-use_ncurses.patch
 URL:		http://dump.sourceforge.net/
+BuildRequires:	autoconf
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	readline-devel >= 4.2
