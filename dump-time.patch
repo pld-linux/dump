@@ -1,0 +1,11 @@
+--- dump-0.4b21/dump/optr.c.time	Wed Feb 14 12:01:33 2001
++++ dump-0.4b21/dump/optr.c	Wed Feb 14 12:01:37 2001
+@@ -48,7 +48,7 @@
+ #include <sys/param.h>
+ #include <sys/wait.h>
+ #include <sys/time.h>
+-
++#include <time.h>
+ #include <errno.h>
+ #include <fstab.h>
+ #include <grp.h>

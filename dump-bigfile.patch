@@ -1,0 +1,17 @@
+--- dump-0.4b19/dump/traverse.c.bigfile	Wed Aug 30 14:27:54 2000
++++ dump-0.4b19/dump/traverse.c	Wed Aug 30 14:28:30 2000
+@@ -84,10 +84,14 @@
+ #define	HASDUMPEDFILE	0x1
+ #define	HASSUBDIRS	0x2
+ 
++#ifdef __linux__
++typedef u_quad_t fsizeT;
++#else
+ #ifdef	FS_44INODEFMT
+ typedef	quad_t fsizeT;
+ #else
+ typedef	long fsizeT;
++#endif
+ #endif
+ 
+ #ifdef	__linux__
