@@ -6,7 +6,7 @@ Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(pt_BR):	Sistema de backup dump/restore
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
-Version:	0.4b24
+Version:	0.4b25
 Release:	1
 License:	BSD
 Group:		Applications/System
