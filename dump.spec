@@ -51,8 +51,8 @@ façons possibles
 %description -l pl
 Pakiet dump zawiera programy dump i restore. Dump sprawdza pliki w
 systemie plikowym i okre¶la które powinny byæ zesk³adowane w kopii
-bezpieczeñstwa an nastêpnie kopiuje te pliki na dysk, ta¶mê
-magnetyczna lub inny nosnik. Polecenie restore wykonujê odwrotna
+bezpieczeñstwa a nastêpnie kopiuje te pliki na dysk, ta¶mê
+magnetyczn± lub inny no¶nik. Polecenie restore wykonuje odwrotn±
 operacjê i s³u¿y do odtwarzania plików z kopii bezpieczeñstwa. Program
 restore umo¿liwia odtwarzanie ca³ego archiwum, a tak¿e wybranych
 plików i katalogów.
