@@ -4,15 +4,17 @@ Summary(fr):	système de sauvegarde dump/restore
 Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
 Summary(tr):	dump/restore yedekleme sistemi
 Name:		dump
-Version:	0.4b16
+Version:	0.4b17
 Release:	1
 Copyright:	UCB
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Source0:	http://download.sourceforge.net/dump/dump-%{version}.tar.gz
 Patch0:		dump-sparc.patch
+Patch1:		dump-autoconf.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	e2fsprogs-devel
+BuildRequires:	readline-devel
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -79,12 +81,14 @@ aygýtlarýna uzaktan eriþim saðlar.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 MYNAME=`id -ru` \
 MYGRP=`id -rg` \
 %configure \
 	--enable-rmt \
+	--enable-readline \
 	--with-ccopts="$RPM_OPT_FLAGS" \
 	--with-ldopts="-s" \
 	--with-binowner=$MYNAME \
@@ -99,17 +103,10 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc,sbin,%{_mandir}/man8}
 
-make BINDIR=$RPM_BUILD_ROOT/sbin MANDIR=$RPM_BUILD_ROOT%{_mandir}/man8 install
+make install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
-
-ln -sf dump $RPM_BUILD_ROOT/sbin/rdump
-ln -sf restore $RPM_BUILD_ROOT/sbin/rrestore
-
-rm -f $RPM_BUILD_ROOT%{_mandir}/man8/{rdump,rrestore}.8
-
-echo ".so dump.8" > $RPM_BUILD_ROOT%{_mandir}/man8/rdump.8
-echo ".so restore.8" > $RPM_BUILD_ROOT%{_mandir}/man8/rrestore.8
 
 ln -sf ../sbin/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
 
@@ -127,13 +124,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /sbin/rdump
 %attr(6755,root,root) /sbin/restore
 %attr(755,root,root) /sbin/rrestore
-%{_mandir}/man8/dump.8.gz
-%{_mandir}/man8/rdump.8.gz
-%{_mandir}/man8/restore.8.gz
-%{_mandir}/man8/rrestore.8.gz
+%{_mandir}/man8/dump.8*
+%{_mandir}/man8/rdump.8*
+%{_mandir}/man8/restore.8*
+%{_mandir}/man8/rrestore.8*
 
 %files -n rmt
 %defattr(644,root,root,755)
 %attr(755,root,root) /sbin/rmt
 %attr(755,root,root) %{_sysconfdir}/rmt
-%{_mandir}/man8/rmt.8.gz
+%{_mandir}/man8/rmt.8*
