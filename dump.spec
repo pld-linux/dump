@@ -47,7 +47,7 @@ bezpieczeñstwa an nastêpnie kopiuje te pliki na dysk, ta¶mê
 magnetyczna lub inny nosnik. Polecenie restore wykonujê odwrotna
 operacjê i s³u¿y do odtwarzania plików z kopii bezpieczeñstwa. Program
 restore umo¿liwia odtwarzanie ca³ego archiwum, a tak¿e wybranych
-pl;ików i katalogów.
+plików i katalogów.
 
 %description -l tr
 dump, ext2 bölümlerini birkaç deðiþik þekilde yedeklemek için
