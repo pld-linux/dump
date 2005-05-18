@@ -12,7 +12,7 @@ Version:	0.4b39
 Release:	1
 License:	BSD
 Group:		Applications/System
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/dump/%{name}-%{version}.tar.gz
 # Source0-md5:	843e4cd3cf0024a25a3d2062ade825fe
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-llh.patch
