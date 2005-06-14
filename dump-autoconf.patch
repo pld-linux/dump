@@ -31,35 +31,6 @@
  
  clean::
  	$(RM) -f $(PROG) $(MAN8) \#* *.s *.o *.a *~ core
---- dump-0.4b33/restore/Makefile.in.orig	Tue Feb 11 23:21:04 2003
-+++ dump-0.4b33/restore/Makefile.in	Tue Feb 11 23:21:57 2003
-@@ -18,8 +18,7 @@
- 		utilities.c
- OBJS=		dirs.o interactive.o main.o restore.o symtab.o tape.o \
- 		utilities.o ../common/dumprmt.o
--MAN8=		restore.8
--RMAN8=		rrestore.8
-+MAN8=		restore.8 rrestore.8
- 
- all::		$(PROG) $(MAN8)
- 
-@@ -31,11 +30,11 @@
- 	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
- 
- install::	all
--	$(INSTALL) -d $(SBINDIR) $(MANDIR)
--	$(INSTALLBIN) $(PROG) $(SBINDIR)
--	$(INSTALLMAN) $(MAN8) $(MANDIR)
--	cd $(SBINDIR) && $(RM) -f $(RPROG) && $(LN_S) $(PROG) $(RPROG)
--	cd $(MANDIR) && $(RM) -f $(RMAN8) && $(LN_S) $(MAN8) $(RMAN8)
-+	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)
-+	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
-+	$(LN_S) restore $(DESTDIR)$(sbindir)/rrestore
-+	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)
-+
- 
- clean::
- 	$(RM) -f $(PROG) $(MAN8) \#* *.s *.o *.a *~ core
 --- dump-0.4b33/rmt/Makefile.in.orig	Tue Feb 11 23:22:03 2003
 +++ dump-0.4b33/rmt/Makefile.in	Tue Feb 11 23:23:07 2003
 @@ -3,6 +3,8 @@
@@ -139,3 +110,32 @@
 +++ dump-0.4b32/dump/rdump.8    Mon Nov 18 15:51:55 2002
 @@ -0,0 +1 @@
 +.so dump.8
+--- dump-0.4b40/restore/Makefile.in.orig	2005-05-02 17:10:46.000000000 +0200
++++ dump-0.4b40/restore/Makefile.in	2005-06-14 17:33:13.056818552 +0200
+@@ -19,8 +19,7 @@
+ 		utilities.c xattr.c
+ OBJS=		dirs.o interactive.o main.o restore.o symtab.o tape.o \
+ 		utilities.o xattr.o ../common/dumprmt.o
+-MAN8=		restore.8
+-RMAN8=		rrestore.8
++MAN8=		restore.8 rrestore.8
+ 
+ .c.o:
+ 	$(CC) -c $(ALL_CFLAGS) $< -o $@
+@@ -35,11 +34,11 @@
+ 	    -e "s|__VERSION__|$(VERSION)|g" $< > $@
+ 
+ install::	all
+-	$(INSTALL) -d $(SBINDIR) $(MANDIR)
+-	$(INSTALLBIN) $(PROG) $(SBINDIR)
+-	$(INSTALLMAN) $(MAN8) $(MANDIR)
+-	cd $(SBINDIR) && $(RM) -f $(RPROG) && $(LN_S) $(PROG) $(RPROG)
+-	cd $(MANDIR) && $(RM) -f $(RMAN8) && $(LN_S) $(MAN8) $(RMAN8)
++	$(INSTALL) -d $(DESTDIR)$(sbindir) $(DESTDIR)$(mandir)
++	$(INSTALLBIN) $(PROG) $(DESTDIR)$(sbindir)
++	$(LN_S) restore $(DESTDIR)$(sbindir)/rrestore
++	$(INSTALLMAN) $(MAN8) $(DESTDIR)$(mandir)
++
+ 
+ clean::
+ 	$(RM) -f $(PROG) $(MAN8) \#* *.s *.o *.a *~ core
