@@ -52,11 +52,11 @@ façons possibles
 %description -l pl
 Pakiet dump zawiera programy dump i restore. Dump sprawdza pliki w
 systemie plikowym i okre¶la które powinny byæ zesk³adowane w kopii
-bezpieczeñstwa a nastêpnie kopiuje te pliki na dysk, ta¶mê
-magnetyczn± lub inny no¶nik. Polecenie restore wykonuje odwrotn±
-operacjê i s³u¿y do odtwarzania plików z kopii bezpieczeñstwa. Program
-restore umo¿liwia odtwarzanie ca³ego archiwum, a tak¿e wybranych
-plików i katalogów.
+bezpieczeñstwa a nastêpnie kopiuje te pliki na dysk, ta¶mê magnetyczn±
+lub inny no¶nik. Polecenie restore wykonuje odwrotn± operacjê i s³u¿y
+do odtwarzania plików z kopii bezpieczeñstwa. Program restore
+umo¿liwia odtwarzanie ca³ego archiwum, a tak¿e wybranych plików i
+katalogów.
 
 %description -l pt_BR
 o dump e o restore podem ser usados para fazer backup em partições
@@ -172,12 +172,12 @@ MYGRP=`id -rg`; \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_mandir}/man8,/usr/sbin}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_mandir}/man8,%{_prefix}/sbin}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install rmt/ermt $RPM_BUILD_ROOT/usr/sbin
+install rmt/ermt $RPM_BUILD_ROOT%{_prefix}/sbin
 
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
 
@@ -203,4 +203,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n ermt
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/sbin/ermt
+%attr(755,root,root) %{_prefix}/sbin/ermt
