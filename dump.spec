@@ -23,6 +23,7 @@ BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	openssl-devel >= 0.9.7a
 BuildRequires:	readline-devel >= 4.2
+BuildRequires:	sed >= 4.0
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -151,6 +152,7 @@ ermt to wersja programu rmt z szyfrowaniem.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+sed 's/ncurses/tinfo/g' -i configure.in
 
 %build
 %{__autoconf}
