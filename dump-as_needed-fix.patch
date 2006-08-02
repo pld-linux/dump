@@ -1,0 +1,28 @@
+diff -Nur dump-0.4b41/configure.in dump-0.4b41.as_needed-fix/configure.in
+--- dump-0.4b41/configure.in	2006-08-02 02:05:37.000000000 +0200
++++ dump-0.4b41.as_needed-fix/configure.in	2006-08-02 02:05:37.000000000 +0200
+@@ -450,18 +450,18 @@
+ AC_SUBST(BLKID)
+ 
+ dnl
+-dnl Check for ncurses or termcap libraries
++dnl Check for tinfo or termcap libraries
+ dnl
+-AC_CHECK_LIB(ncurses, tgetent, [ncurses_lib=yes], [ncurses_lib=no])
++AC_CHECK_LIB(tinfo, tgetent, [tinfo_lib=yes], [tinfo_lib=no])
+ AC_CHECK_LIB(termcap, tgetent, [termcap_lib=yes], [termcap_lib=no])
+ 
+-if test "$ncurses_lib" = no -a "$termcap_lib" = no; then
++if test "$tinfo_lib" = no -a "$termcap_lib" = no; then
+ 	if test "$READLINE" = "yes"; then
+-		AC_MSG_ERROR(You need to install the ncurses or termcap library or configure without --enable-readline)
++		AC_MSG_ERROR(You need to install the tinfo or termcap library or configure without --enable-readline)
+ 	fi
+ fi
+-if test "$ncurses_lib" = yes; then
+-	rdllib="-lncurses"
++if test "$tinfo_lib" = yes; then
++	rdllib="-ltinfo"
+ elif test "$termcap_lib" = yes; then
+ 	rdllib="-ltermcap"
+ fi
