@@ -16,6 +16,7 @@ Source0:	http://dl.sourceforge.net/dump/%{name}-%{version}.tar.gz
 # Source0-md5:	f89bb42d860c58b86b05d0734c9f3649
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-llh.patch
+Patch2:		%{name}-as_needed-fix.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	bzip2-devel
@@ -23,7 +24,6 @@ BuildRequires:	e2fsprogs-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	openssl-devel >= 0.9.7a
 BuildRequires:	readline-devel >= 4.2
-BuildRequires:	sed >= 4.0
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -152,7 +152,7 @@ ermt to wersja programu rmt z szyfrowaniem.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-sed 's/ncurses/tinfo/g' -i configure.in
+%patch2 -p1
 
 %build
 %{__autoconf}
@@ -174,12 +174,12 @@ MYGRP=`id -rg`; \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_mandir}/man8,%{_prefix}/sbin}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_mandir}/man8,%{_prefix}%{_sbindir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install rmt/ermt $RPM_BUILD_ROOT%{_prefix}/sbin
+install rmt/ermt $RPM_BUILD_ROOT%{_prefix}%{_sbindir}
 
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
 
@@ -205,4 +205,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n ermt
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_prefix}/sbin/ermt
+%attr(755,root,root) %{_prefix}%{_sbindir}/ermt
