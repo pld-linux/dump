@@ -1,12 +1,12 @@
 Summary:	Programs for backing up and restoring filesystems
-Summary(de):	Dump/Restore-Backup-System
-Summary(es):	Sistema de copia de seguridad dump/restore
-Summary(fr):	système de sauvegarde dump/restore
-Summary(pl):	Programy do wykonywania kopii bezpieczeñstwa plików
-Summary(pt_BR):	Sistema de backup dump/restore
-Summary(ru):	ðÒÏÇÒÁÍÍÙ ÄÌÑ ÒÅÚÅÒ×ÎÏÇÏ ËÏÐÉÒÏ×ÁÎÉÑ É ×ÏÓÓÔÁÎÏ×ÌÅÎÉÑ ÆÁÊÌÏ×ÙÈ ÓÉÓÔÅÍ
-Summary(tr):	dump/restore yedekleme sistemi
-Summary(uk):	ðÒÏÇÒÁÍÉ ÄÌÑ ÒÅÚÅÒ×ÎÏÇÏ ËÏÐ¦À×ÁÎÎÑ ÔÁ ×¦ÄÎÏ×ÌÅÎÎÑ ÆÁÊÌÏ×ÉÈ ÓÉÓÔÅÍ
+Summary(de.UTF-8):   Dump/Restore-Backup-System
+Summary(es.UTF-8):   Sistema de copia de seguridad dump/restore
+Summary(fr.UTF-8):   systÃ¨me de sauvegarde dump/restore
+Summary(pl.UTF-8):   Programy do wykonywania kopii bezpieczeÅ„stwa plikÃ³w
+Summary(pt_BR.UTF-8):   Sistema de backup dump/restore
+Summary(ru.UTF-8):   ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ Ð´Ð»Ñ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð²Ñ‹Ñ… ÑÐ¸ÑÑ‚ÐµÐ¼
+Summary(tr.UTF-8):   dump/restore yedekleme sistemi
+Summary(uk.UTF-8):   ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸ Ð´Ð»Ñ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð¿Ñ–ÑŽÐ²Ð°Ð½Ð½Ñ Ñ‚Ð° Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð²Ð¸Ñ… ÑÐ¸ÑÑ‚ÐµÐ¼
 Name:		dump
 Version:	0.4b41
 Release:	1
@@ -38,65 +38,65 @@ restore a full backup of a filesystem. Subsequent incremental backups
 can then be layered on top of the full backup. Single files and
 directory subtrees may also be restored from full or partial backups.
 
-%description -l de
-Sie können mit dump und restore verschiedene Verfahren zum Sichern von
-extended 2 (ext2)-Partitionen ausführen.
+%description -l de.UTF-8
+Sie kÃ¶nnen mit dump und restore verschiedene Verfahren zum Sichern von
+extended 2 (ext2)-Partitionen ausfÃ¼hren.
 
-%description -l es
+%description -l es.UTF-8
 Dump y restore pueden ser usados para hacer copias de seguridad en
 particiones ext2 de varias maneras diferentes.
 
-%description -l fr
-dupm et restore servent à sauvegarder des partitions ext2 de plusieurs
-façons possibles
+%description -l fr.UTF-8
+dupm et restore servent Ã  sauvegarder des partitions ext2 de plusieurs
+faÃ§ons possibles
 
-%description -l pl
+%description -l pl.UTF-8
 Pakiet dump zawiera programy dump i restore. Dump sprawdza pliki w
-systemie plikowym i okre¶la które powinny byæ zesk³adowane w kopii
-bezpieczeñstwa a nastêpnie kopiuje te pliki na dysk, ta¶mê magnetyczn±
-lub inny no¶nik. Polecenie restore wykonuje odwrotn± operacjê i s³u¿y
-do odtwarzania plików z kopii bezpieczeñstwa. Program restore
-umo¿liwia odtwarzanie ca³ego archiwum, a tak¿e wybranych plików i
-katalogów.
+systemie plikowym i okreÅ›la ktÃ³re powinny byÄ‡ zeskÅ‚adowane w kopii
+bezpieczeÅ„stwa a nastÄ™pnie kopiuje te pliki na dysk, taÅ›mÄ™ magnetycznÄ…
+lub inny noÅ›nik. Polecenie restore wykonuje odwrotnÄ… operacjÄ™ i sÅ‚uÅ¼y
+do odtwarzania plikÃ³w z kopii bezpieczeÅ„stwa. Program restore
+umoÅ¼liwia odtwarzanie caÅ‚ego archiwum, a takÅ¼e wybranych plikÃ³w i
+katalogÃ³w.
 
-%description -l pt_BR
-o dump e o restore podem ser usados para fazer backup em partições
-ext2 de várias maneiras diferentes.
+%description -l pt_BR.UTF-8
+o dump e o restore podem ser usados para fazer backup em partiÃ§Ãµes
+ext2 de vÃ¡rias maneiras diferentes.
 
-%description -l ru
-ðÁËÅÔ dump ÓÏÄÅÒÖÉÔ dump É restore. Dump ÐÒÏÓÍÁÔÒÉ×ÁÅÔ ÆÁÊÌÙ ×
-ÆÁÊÌÏ×ÏÊ ÓÉÓÔÅÍÅ, ÏÐÒÅÄÅÌÑÅÔ ËÁËÉÅ ÉÚ ÎÉÈ ÎÕÖÄÁÀÔÓÑ × ÒÅÚÅÒ×ÎÏÍ
-ËÏÐÉÒÏ×ÁÎÉÉ É ËÏÐÉÒÕÅÔ ÜÔÉ ÆÁÊÌÙ ÎÁ ÕËÁÚÁÎÎÙÊ ÄÉÓË, ÌÅÎÔÕ ÉÌÉ ÄÒÕÇÏÊ
-ÎÏÓÉÔÅÌØ. ëÏÍÁÎÄÁ restore ×ÙÐÏÌÎÑÅÔ ÏÂÒÁÔÎÕÀ ÆÕÎËÃÉÀ - ÏÎÁ ÍÏÖÅÔ
-×ÏÓÓÔÁÎÏ×ÉÔØ ×ÓÀ ÆÁÊÌÏ×ÕÀ ÓÉÓÔÅÍÕ ÉÚ ÒÅÚÅÒ×ÎÏÊ ËÏÐÉÉ. ðÏÓÌÅÄÕÀÝÉÅ
-ÉÎËÒÅÍÅÎÔÁÌØÎÙÅ ÒÅÚÅÒ×ÎÙÅ ËÏÐÉÉ ÍÏÇÕÔ ÎÁËÌÁÄÙ×ÁÔØÓÑ ÎÁ ÐÏÌÎÕÀ ËÏÐÉÀ.
-ôÁËÖÅ ÉÚ ÐÏÌÎÏÊ ÉÌÉ ÞÁÓÔÉÞÎÏÊ ÒÅÚÅÒ×ÎÏÊ ËÏÐÉÉ ÍÏÇÕÔ ÂÙÔØ ×ÏÓÓÔÁÎÏ×ÌÅÎÙ
-ÏÔÄÅÌØÎÙÅ ÆÁÊÌÙ É ÄÅÒÅ×ØÑ ËÁÔÁÌÏÇÏ×.
+%description -l ru.UTF-8
+ÐŸÐ°ÐºÐµÑ‚ dump ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ dump Ð¸ restore. Dump Ð¿Ñ€Ð¾ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°ÐµÑ‚ Ñ„Ð°Ð¹Ð»Ñ‹ Ð²
+Ñ„Ð°Ð¹Ð»Ð¾Ð²Ð¾Ð¹ ÑÐ¸ÑÑ‚ÐµÐ¼Ðµ, Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÑ‚ ÐºÐ°ÐºÐ¸Ðµ Ð¸Ð· Ð½Ð¸Ñ… Ð½ÑƒÐ¶Ð´Ð°ÑŽÑ‚ÑÑ Ð² Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¼
+ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ð¸ ÐºÐ¾Ð¿Ð¸Ñ€ÑƒÐµÑ‚ ÑÑ‚Ð¸ Ñ„Ð°Ð¹Ð»Ñ‹ Ð½Ð° ÑƒÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ð´Ð¸ÑÐº, Ð»ÐµÐ½Ñ‚Ñƒ Ð¸Ð»Ð¸ Ð´Ñ€ÑƒÐ³Ð¾Ð¹
+Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒ. ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° restore Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ Ð¾Ð±Ñ€Ð°Ñ‚Ð½ÑƒÑŽ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ - Ð¾Ð½Ð° Ð¼Ð¾Ð¶ÐµÑ‚
+Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð²ÑÑŽ Ñ„Ð°Ð¹Ð»Ð¾Ð²ÑƒÑŽ ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ Ð¸Ð· Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸. ÐŸÐ¾ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ðµ
+Ð¸Ð½ÐºÑ€ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñ‹Ðµ ÐºÐ¾Ð¿Ð¸Ð¸ Ð¼Ð¾Ð³ÑƒÑ‚ Ð½Ð°ÐºÐ»Ð°Ð´Ñ‹Ð²Ð°Ñ‚ÑŒÑÑ Ð½Ð° Ð¿Ð¾Ð»Ð½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ.
+Ð¢Ð°ÐºÐ¶Ðµ Ð¸Ð· Ð¿Ð¾Ð»Ð½Ð¾Ð¹ Ð¸Ð»Ð¸ Ñ‡Ð°ÑÑ‚Ð¸Ñ‡Ð½Ð¾Ð¹ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸ Ð¼Ð¾Ð³ÑƒÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ñ‹
+Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ñ„Ð°Ð¹Ð»Ñ‹ Ð¸ Ð´ÐµÑ€ÐµÐ²ÑŒÑ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð¾Ð².
 
-%description -l tr
-dump, ext2 bölümlerini birkaç deðiþik þekilde yedeklemek için
-kullanýlýr. restore ise dump ile alýnan yedekleri geri yükleyen
-programdýr.
+%description -l tr.UTF-8
+dump, ext2 bÃ¶lÃ¼mlerini birkaÃ§ deÄŸiÅŸik ÅŸekilde yedeklemek iÃ§in
+kullanÄ±lÄ±r. restore ise dump ile alÄ±nan yedekleri geri yÃ¼kleyen
+programdÄ±r.
 
-%description -l uk
-ðÁËÅÔ dump Í¦ÓÔÉÔØ dump ÔÁ restore. Dump ÐÒÏÇÌÑÄÁ¤ ÆÁÊÌÉ Õ ÆÁÊÌÏ×¦Ê
-ÓÉÓÔÅÍ¦, ×ÉÒ¦ÛÕ¤ ÑË¦ Ú ÎÉÈ Ð¦ÄÌÑÇÁÀÔØ ÒÅÚÅÒ×ÎÏÍÕ ËÏÐ¦À×ÁÎÎÀ ÔÁ ËÏÐ¦À¤
-Ã¦ ÆÁÊÌÉ ÎÁ ×ÉÚÎÁÞÅÎÉÊ ÄÉÓË, ÓÔÒ¦ÞËÕ ÁÂÏ ¦ÎÛÉÊ ÎÏÓ¦Ê. ëÏÍÁÎÄÁ restore
-×ÉËÏÎÕ¤ Ú×ÏÒÏÔÎÀ ÆÕÎËÃ¦À - ×ÏÎÁ ÍÏÖÅ ×¦ÄÎÏ×ÉÔÉ ×ÓÀ ÆÁÊÌÏ×Õ ÓÉÓÔÅÍÕ Ú
-ÒÅÚÅÒ×ÎÏ§ ËÏÐ¦§. îÁÓÔÕÐÎ¦ ¦ÎËÒÅÍÅÎÔÁÌØÎ¦ ÒÅÚÅÒ×Î¦ ËÏÐ¦§ ÍÏÖÕÔØ
-ÎÁËÌÁÄÁÔÉÓÑ ÎÁ ÐÏ×ÎÕ ËÏÐ¦À. ôÁËÏÖ Ú ÐÏ×ÎÏ§ ÁÂÏ ÞÁÓÔËÏ×Ï§ ÒÅÚÅÒ×ÎÏ§
-ËÏÐ¦§ ÍÏÖÕÔØ ÂÕÔÉ ×¦ÄÎÏ×ÌÅÎ¦ ÏËÒÅÍ¦ ÆÁÊÌÉ ÔÁ ÄÅÒÅ×Á ËÁÔÁÌÏÇ¦×.
+%description -l uk.UTF-8
+ÐŸÐ°ÐºÐµÑ‚ dump Ð¼Ñ–ÑÑ‚Ð¸Ñ‚ÑŒ dump Ñ‚Ð° restore. Dump Ð¿Ñ€Ð¾Ð³Ð»ÑÐ´Ð°Ñ” Ñ„Ð°Ð¹Ð»Ð¸ Ñƒ Ñ„Ð°Ð¹Ð»Ð¾Ð²Ñ–Ð¹
+ÑÐ¸ÑÑ‚ÐµÐ¼Ñ–, Ð²Ð¸Ñ€Ñ–ÑˆÑƒÑ” ÑÐºÑ– Ð· Ð½Ð¸Ñ… Ð¿Ñ–Ð´Ð»ÑÐ³Ð°ÑŽÑ‚ÑŒ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¼Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽÐ²Ð°Ð½Ð½ÑŽ Ñ‚Ð° ÐºÐ¾Ð¿Ñ–ÑŽÑ”
+Ñ†Ñ– Ñ„Ð°Ð¹Ð»Ð¸ Ð½Ð° Ð²Ð¸Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ð´Ð¸ÑÐº, ÑÑ‚Ñ€Ñ–Ñ‡ÐºÑƒ Ð°Ð±Ð¾ Ñ–Ð½ÑˆÐ¸Ð¹ Ð½Ð¾ÑÑ–Ð¹. ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° restore
+Ð²Ð¸ÐºÐ¾Ð½ÑƒÑ” Ð·Ð²Ð¾Ñ€Ð¾Ñ‚Ð½ÑŽ Ñ„ÑƒÐ½ÐºÑ†Ñ–ÑŽ - Ð²Ð¾Ð½Ð° Ð¼Ð¾Ð¶Ðµ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð²ÑÑŽ Ñ„Ð°Ð¹Ð»Ð¾Ð²Ñƒ ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ Ð·
+Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ñ— ÐºÐ¾Ð¿Ñ–Ñ—. ÐÐ°ÑÑ‚ÑƒÐ¿Ð½Ñ– Ñ–Ð½ÐºÑ€ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð»ÑŒÐ½Ñ– Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñ– ÐºÐ¾Ð¿Ñ–Ñ— Ð¼Ð¾Ð¶ÑƒÑ‚ÑŒ
+Ð½Ð°ÐºÐ»Ð°Ð´Ð°Ñ‚Ð¸ÑÑ Ð½Ð° Ð¿Ð¾Ð²Ð½Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽ. Ð¢Ð°ÐºÐ¾Ð¶ Ð· Ð¿Ð¾Ð²Ð½Ð¾Ñ— Ð°Ð±Ð¾ Ñ‡Ð°ÑÑ‚ÐºÐ¾Ð²Ð¾Ñ— Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ñ—
+ÐºÐ¾Ð¿Ñ–Ñ— Ð¼Ð¾Ð¶ÑƒÑ‚ÑŒ Ð±ÑƒÑ‚Ð¸ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ñ– Ð¾ÐºÑ€ÐµÐ¼Ñ– Ñ„Ð°Ð¹Ð»Ð¸ Ñ‚Ð° Ð´ÐµÑ€ÐµÐ²Ð° ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ñ–Ð².
 
 %package -n rmt
 Summary:	Provides certain programs with access to remote tape devices
-Summary(de):	Entfernter Zugriff (Netzwerk) auf Magnetbandgeräte
-Summary(es):	Acceso a dispositivo de cinta remoto (en red)
-Summary(fr):	Accès distant (réseau) à un périphérique bande
-Summary(pl):	Program do zdalnego dostêpu do napêdów ta¶m magnetycznych
-Summary(pt_BR):	Acesso a dispositivo de fita remoto (em rede)
-Summary(ru):	ðÒÏÇÒÁÍÍÙ ÄÌÑ ÄÏÓÔÕÐÁ Ë ÕÄÁÌÅÎÎÙÍ ÌÅÎÔÏÞÎÙÍ ÕÓÔÒÏÊÓÔ×ÁÍ
-Summary(tr):	Uzak teyp sürücülerine eriþim aracý
-Summary(uk):	ðÒÏÇÒÁÍÉ ÄÌÑ ÄÏÓÔÕÐÕ ÄÏ ×¦ÄÄÁÌÅÎÉÈ ÓÔÒ¦ÞËÏ×ÉÈ ÐÒÉÓÔÒÏ§×
+Summary(de.UTF-8):   Entfernter Zugriff (Netzwerk) auf MagnetbandgerÃ¤te
+Summary(es.UTF-8):   Acceso a dispositivo de cinta remoto (en red)
+Summary(fr.UTF-8):   AccÃ¨s distant (rÃ©seau) Ã  un pÃ©riphÃ©rique bande
+Summary(pl.UTF-8):   Program do zdalnego dostÄ™pu do napÄ™dÃ³w taÅ›m magnetycznych
+Summary(pt_BR.UTF-8):   Acesso a dispositivo de fita remoto (em rede)
+Summary(ru.UTF-8):   ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ Ð´Ð»Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº ÑƒÐ´Ð°Ð»ÐµÐ½Ð½Ñ‹Ð¼ Ð»ÐµÐ½Ñ‚Ð¾Ñ‡Ð½Ñ‹Ð¼ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ð¼
+Summary(tr.UTF-8):   Uzak teyp sÃ¼rÃ¼cÃ¼lerine eriÅŸim aracÄ±
+Summary(uk.UTF-8):   ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸ Ð´Ð»Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ñƒ Ð´Ð¾ Ð²Ñ–Ð´Ð´Ð°Ð»ÐµÐ½Ð¸Ñ… ÑÑ‚Ñ€Ñ–Ñ‡ÐºÐ¾Ð²Ð¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—Ð²
 Group:		Applications/System
 
 %description -n rmt
@@ -104,48 +104,48 @@ The rmt utility provides remote access to tape devices for programs
 like dump (a filesystem backup program), restore (a program for
 restoring files from a backup) and tar (an archiving program).
 
-%description -n rmt -l de
-rmt stellt Remote-Access zu Bandgeräten für Programme wie Dump,
+%description -n rmt -l de.UTF-8
+rmt stellt Remote-Access zu BandgerÃ¤ten fÃ¼r Programme wie Dump,
 Restore und tar bereit.
 
-%description -n rmt -l es
+%description -n rmt -l es.UTF-8
 rmt provee acceso remoto a dispositivos de cinta para programas como
 dump, restore y tar.
 
-%description -n rmt -l fr
-rmt offre un accès distant aux périphériques bandes pour des
+%description -n rmt -l fr.UTF-8
+rmt offre un accÃ¨s distant aux pÃ©riphÃ©riques bandes pour des
 programmes comme dump, restore et tar.
 
-%description -n rmt -l pl
-Program rmt umo¿liwia zdalny dostêp do napêdów ta¶m magnetycznych dla
-programów takich jak dump, restore czy tar.
+%description -n rmt -l pl.UTF-8
+Program rmt umoÅ¼liwia zdalny dostÄ™p do napÄ™dÃ³w taÅ›m magnetycznych dla
+programÃ³w takich jak dump, restore czy tar.
 
-%description -n rmt -l pt_BR
-rmt provê acesso remoto a dispositivos de fita para programas como
+%description -n rmt -l pt_BR.UTF-8
+rmt provÃª acesso remoto a dispositivos de fita para programas como
 dump, restore e tar.
 
-%description -n rmt -l ru
-õÔÉÌÉÔÁ rmt ÐÒÅÄÏÓÔÁ×ÌÑÅÔ ÕÄÁÌÅÎÎÙÊ ÄÏÓÔÕÐ Ë ÌÅÎÔÏÞÎÙÍ ÕÓÔÒÏÊÓÔ×ÁÍ
-ÎÅËÏÔÏÒÙÍ ÐÒÏÇÒÁÍÍÁÍ, ÎÁÐÒÉÍÅÒ dump, restore, tar.
+%description -n rmt -l ru.UTF-8
+Ð£Ñ‚Ð¸Ð»Ð¸Ñ‚Ð° rmt Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½Ð½Ñ‹Ð¹ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ð»ÐµÐ½Ñ‚Ð¾Ñ‡Ð½Ñ‹Ð¼ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ð¼
+Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð°Ð¼, Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€ dump, restore, tar.
 
-%description -n rmt -l tr
-rmt programý, dump, restore ve tar gibi programlar için teyp
-aygýtlarýna uzaktan eriþim saðlar.
+%description -n rmt -l tr.UTF-8
+rmt programÄ±, dump, restore ve tar gibi programlar iÃ§in teyp
+aygÄ±tlarÄ±na uzaktan eriÅŸim saÄŸlar.
 
-%description -n rmt -l uk
-õÔÉÌ¦ÔÁ rmt ÎÁÄÁ¤ ×¦ÄÄÁÌÅÎÉÊ ÄÏÓÔÕÐ ÄÏ ÓÔÒ¦ÞËÏ×ÉÈ ÐÒÉÓÔÒÏ§× ÄÅÑËÉÍ
-ÐÒÏÇÒÁÍÁÍ, ÎÁÐÒÉËÌÁÄ dump, restore, tar.
+%description -n rmt -l uk.UTF-8
+Ð£Ñ‚Ð¸Ð»Ñ–Ñ‚Ð° rmt Ð½Ð°Ð´Ð°Ñ” Ð²Ñ–Ð´Ð´Ð°Ð»ÐµÐ½Ð¸Ð¹ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ ÑÑ‚Ñ€Ñ–Ñ‡ÐºÐ¾Ð²Ð¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—Ð² Ð´ÐµÑÐºÐ¸Ð¼
+Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð°Ð¼, Ð½Ð°Ð¿Ñ€Ð¸ÐºÐ»Ð°Ð´ dump, restore, tar.
 
 %package -n ermt
 Summary:	Encrypting version of rmt
-Summary(pl):	Wersja rmt z szyfrowaniem
+Summary(pl.UTF-8):   Wersja rmt z szyfrowaniem
 Group:		Applications/System
 Requires:	openssl >= 0.9.7a
 
 %description -n ermt
 ermt is an encrypting version of rmt.
 
-%description -n ermt -l pl
+%description -n ermt -l pl.UTF-8
 ermt to wersja programu rmt z szyfrowaniem.
 
 %prep
