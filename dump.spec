@@ -1,12 +1,12 @@
 Summary:	Programs for backing up and restoring filesystems
-Summary(de.UTF-8):   Dump/Restore-Backup-System
-Summary(es.UTF-8):   Sistema de copia de seguridad dump/restore
-Summary(fr.UTF-8):   système de sauvegarde dump/restore
-Summary(pl.UTF-8):   Programy do wykonywania kopii bezpieczeństwa plików
-Summary(pt_BR.UTF-8):   Sistema de backup dump/restore
-Summary(ru.UTF-8):   Программы для резервного копирования и восстановления файловых систем
-Summary(tr.UTF-8):   dump/restore yedekleme sistemi
-Summary(uk.UTF-8):   Програми для резервного копіювання та відновлення файлових систем
+Summary(de.UTF-8):	Dump/Restore-Backup-System
+Summary(es.UTF-8):	Sistema de copia de seguridad dump/restore
+Summary(fr.UTF-8):	système de sauvegarde dump/restore
+Summary(pl.UTF-8):	Programy do wykonywania kopii bezpieczeństwa plików
+Summary(pt_BR.UTF-8):	Sistema de backup dump/restore
+Summary(ru.UTF-8):	Программы для резервного копирования и восстановления файловых систем
+Summary(tr.UTF-8):	dump/restore yedekleme sistemi
+Summary(uk.UTF-8):	Програми для резервного копіювання та відновлення файлових систем
 Name:		dump
 Version:	0.4b41
 Release:	1
@@ -89,14 +89,14 @@ programdır.
 
 %package -n rmt
 Summary:	Provides certain programs with access to remote tape devices
-Summary(de.UTF-8):   Entfernter Zugriff (Netzwerk) auf Magnetbandgeräte
-Summary(es.UTF-8):   Acceso a dispositivo de cinta remoto (en red)
-Summary(fr.UTF-8):   Accès distant (réseau) à un périphérique bande
-Summary(pl.UTF-8):   Program do zdalnego dostępu do napędów taśm magnetycznych
-Summary(pt_BR.UTF-8):   Acesso a dispositivo de fita remoto (em rede)
-Summary(ru.UTF-8):   Программы для доступа к удаленным ленточным устройствам
-Summary(tr.UTF-8):   Uzak teyp sürücülerine erişim aracı
-Summary(uk.UTF-8):   Програми для доступу до віддалених стрічкових пристроїв
+Summary(de.UTF-8):	Entfernter Zugriff (Netzwerk) auf Magnetbandgeräte
+Summary(es.UTF-8):	Acceso a dispositivo de cinta remoto (en red)
+Summary(fr.UTF-8):	Accès distant (réseau) à un périphérique bande
+Summary(pl.UTF-8):	Program do zdalnego dostępu do napędów taśm magnetycznych
+Summary(pt_BR.UTF-8):	Acesso a dispositivo de fita remoto (em rede)
+Summary(ru.UTF-8):	Программы для доступа к удаленным ленточным устройствам
+Summary(tr.UTF-8):	Uzak teyp sürücülerine erişim aracı
+Summary(uk.UTF-8):	Програми для доступу до віддалених стрічкових пристроїв
 Group:		Applications/System
 
 %description -n rmt
@@ -138,7 +138,7 @@ aygıtlarına uzaktan erişim sağlar.
 
 %package -n ermt
 Summary:	Encrypting version of rmt
-Summary(pl.UTF-8):   Wersja rmt z szyfrowaniem
+Summary(pl.UTF-8):	Wersja rmt z szyfrowaniem
 Group:		Applications/System
 Requires:	openssl >= 0.9.7a
 
