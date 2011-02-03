@@ -1,28 +1,20 @@
-diff -Nur dump-0.4b41/configure.in dump-0.4b41.as_needed-fix/configure.in
---- dump-0.4b41/configure.in	2006-08-02 02:05:37.000000000 +0200
-+++ dump-0.4b41.as_needed-fix/configure.in	2006-08-02 02:05:37.000000000 +0200
-@@ -450,18 +450,18 @@
- AC_SUBST(BLKID)
- 
+--- dump-0.4b43/configure.in.orig	2011-02-03 19:33:01.000000000 +0100
++++ dump-0.4b43/configure.in	2011-02-03 19:37:25.852692227 +0100
+@@ -510,7 +510,7 @@
  dnl
--dnl Check for ncurses or termcap libraries
-+dnl Check for tinfo or termcap libraries
+ dnl Check for rl_completion_matches
  dnl
--AC_CHECK_LIB(ncurses, tgetent, [ncurses_lib=yes], [ncurses_lib=no])
-+AC_CHECK_LIB(tinfo, tgetent, [tinfo_lib=yes], [tinfo_lib=no])
- AC_CHECK_LIB(termcap, tgetent, [termcap_lib=yes], [termcap_lib=no])
- 
--if test "$ncurses_lib" = no -a "$termcap_lib" = no; then
-+if test "$tinfo_lib" = no -a "$termcap_lib" = no; then
- 	if test "$READLINE" = "yes"; then
--		AC_MSG_ERROR(You need to install the ncurses or termcap library or configure without --enable-readline)
-+		AC_MSG_ERROR(You need to install the tinfo or termcap library or configure without --enable-readline)
- 	fi
+-AC_CHECK_LIB(readline, rl_completion_matches, [rlcm=yes], [rlcm=no], "-ltermcap")
++AC_CHECK_LIB(readline, rl_completion_matches, [rlcm=yes], [rlcm=no], "$rdllib")
+ if test "$rlcm" = yes; then
+ 	AC_DEFINE([HAVE_READLINE_RLCM],1,[Define this if your readline libs have the rl_completion_matches library.])
  fi
--if test "$ncurses_lib" = yes; then
--	rdllib="-lncurses"
-+if test "$tinfo_lib" = yes; then
-+	rdllib="-ltinfo"
- elif test "$termcap_lib" = yes; then
- 	rdllib="-ltermcap"
+@@ -518,7 +518,7 @@
+ dnl
+ dnl Check for rl_completion_append_character
+ dnl
+-AC_CHECK_LIB(readline, rl_completion_append_character, [rcac=yes], [rcac=no], "-ltermcap")
++AC_CHECK_LIB(readline, rl_completion_append_character, [rcac=yes], [rcac=no], "$rdllib")
+ if test "$rcac" = yes; then
+ 	AC_DEFINE([HAVE_READLINE_CAC],1,[Define this if your readline libs have the rl_completion_append_character variable.])
  fi

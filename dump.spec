@@ -8,12 +8,12 @@ Summary(ru.UTF-8):	Программы для резервного копиров
 Summary(tr.UTF-8):	dump/restore yedekleme sistemi
 Summary(uk.UTF-8):	Програми для резервного копіювання та відновлення файлових систем
 Name:		dump
-Version:	0.4b41
-Release:	3
+Version:	0.4b43
+Release:	1
 License:	BSD
 Group:		Applications/System
-Source0:	http://dl.sourceforge.net/dump/%{name}-%{version}.tar.gz
-# Source0-md5:	f89bb42d860c58b86b05d0734c9f3649
+Source0:	http://downloads.sourceforge.net/dump/%{name}-%{version}.tar.gz
+# Source0-md5:	a708cbac8a0f69dd55aecbb80bb290ca
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-llh.patch
 Patch2:		%{name}-as_needed-fix.patch
@@ -156,8 +156,8 @@ ermt to wersja programu rmt z szyfrowaniem.
 
 %build
 %{__autoconf}
-MYNAME=`id -ru` \
-MYGRP=`id -rg`; \
+MYNAME=`id -ru`
+MYGRP=`id -rg`
 %configure \
 	--enable-ermt \
 	--enable-rmt \
@@ -179,7 +179,7 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_mandir}/man8,%{_prefix}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install rmt/ermt $RPM_BUILD_ROOT%{_prefix}%{_sbindir}
+install rmt/ermt $RPM_BUILD_ROOT%{_prefix}/sbin
 
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
 
@@ -192,10 +192,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES
 %attr(664,root,disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
-%attr(755,root,root) %{_sbindir}/*dump
-%attr(755,root,root) %{_sbindir}/*restore
-%{_mandir}/man8/*dump.8*
-%{_mandir}/man8/*restore.8*
+%attr(755,root,root) %{_sbindir}/dump
+%attr(755,root,root) %{_sbindir}/rdump
+%attr(755,root,root) %{_sbindir}/restore
+%attr(755,root,root) %{_sbindir}/rrestore
+%{_mandir}/man8/dump.8*
+%{_mandir}/man8/rdump.8*
+%{_mandir}/man8/restore.8*
+%{_mandir}/man8/rrestore.8*
 
 %files -n rmt
 %defattr(644,root,root,755)
@@ -205,4 +209,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n ermt
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_prefix}%{_sbindir}/ermt
+%attr(755,root,root) %{_prefix}/sbin/ermt
