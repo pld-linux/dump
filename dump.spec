@@ -21,6 +21,7 @@ URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	bzip2-devel
 BuildRequires:	e2fsprogs-devel
+BuildRequires:	libselinux-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	openssl-devel >= 0.9.7a
 BuildRequires:	readline-devel >= 4.2
