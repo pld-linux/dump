@@ -8,22 +8,24 @@ Summary(ru.UTF-8):	Программы для резервного копиров
 Summary(tr.UTF-8):	dump/restore yedekleme sistemi
 Summary(uk.UTF-8):	Програми для резервного копіювання та відновлення файлових систем
 Name:		dump
-Version:	0.4b43
+Version:	0.4b44
 Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/dump/%{name}-%{version}.tar.gz
-# Source0-md5:	a708cbac8a0f69dd55aecbb80bb290ca
+# Source0-md5:	daec97b1ad905c904eba926221f4be6d
 Patch0:		%{name}-autoconf.patch
 Patch1:		%{name}-llh.patch
 Patch2:		%{name}-as_needed-fix.patch
 URL:		http://dump.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
+BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	libselinux-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	openssl-devel >= 0.9.7a
+BuildRequires:	pkgconfig
 BuildRequires:	readline-devel >= 4.2
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -156,6 +158,7 @@ ermt to wersja programu rmt z szyfrowaniem.
 %patch2 -p1
 
 %build
+%{__aclocal}
 %{__autoconf}
 MYNAME=`id -ru`
 MYGRP=`id -rg`

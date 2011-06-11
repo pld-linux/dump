@@ -1,5 +1,17 @@
 --- dump-0.4b43/configure.in.orig	2011-02-03 19:33:01.000000000 +0100
 +++ dump-0.4b43/configure.in	2011-02-03 19:37:25.852692227 +0100
+@@ -407,9 +407,9 @@
+ dnl Check for Ext2fs headers and libraries
+ dnl
+ AC_CHECK_HEADER(ext2fs/ext2fs.h, [ext2fs_h=yes], [ext2fs_h=no], [-])
+-PKG_CHECK_MODULES(EXT2FS, [ext2fs])
++PKG_CHECK_MODULES(EXT2FS, [ext2fs com_err])
+ if test -n "$STATIC" ; then
+-	EXT2FS_LIBS=`$PKG_CONFIG --libs --static ext2fs`
++	EXT2FS_LIBS=`$PKG_CONFIG --libs --static ext2fs com_err`
+ fi
+ if test "$ext2fs_h" = no -o "x$EXT2FS_LIBS" = "x"; then
+ 	AC_MSG_ERROR(You need to install the Ext2fs libraries from the E2fsprogs distribution first - hint: make install-libs)
 @@ -510,7 +510,7 @@
  dnl
  dnl Check for rl_completion_matches
