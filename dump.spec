@@ -8,21 +8,21 @@ Summary(ru.UTF-8):	Программы для резервного копиров
 Summary(tr.UTF-8):	dump/restore yedekleme sistemi
 Summary(uk.UTF-8):	Програми для резервного копіювання та відновлення файлових систем
 Name:		dump
-Version:	0.4b44
-Release:	4
+Version:	0.4b46
+Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/dump/%{name}-%{version}.tar.gz
-# Source0-md5:	daec97b1ad905c904eba926221f4be6d
-Patch0:		%{name}-autoconf.patch
-Patch1:		%{name}-llh.patch
-Patch2:		%{name}-as_needed-fix.patch
+# Source0-md5:	4c463f797e7e8a1112fabf5cbf8e1855
+Patch0:		openssl.patch
 URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	libselinux-devel
+BuildRequires:	lzo-devel
+BuildRequires:	sqlite3-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	openssl-devel >= 0.9.7a
 BuildRequires:	pkgconfig
@@ -154,12 +154,11 @@ ermt to wersja programu rmt z szyfrowaniem.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
+%{__automake}
 MYNAME=`id -ru`
 MYGRP=`id -rg`
 %configure \
@@ -173,7 +172,8 @@ MYGRP=`id -rg`
 	--with-binmode=755 \
 	--with-manowner=$MYNAME \
 	--with-mangrp=$MYGRP \
-	--with-manmode=644
+	--with-manmode=644 \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -194,7 +194,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYRIGHT KNOWNBUGS README THANKS TODO CHANGES
+%doc KNOWNBUGS MAINTAINERS NEWS README TODO 
 %attr(664,root,disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
 %attr(755,root,root) %{_sbindir}/dump
 %attr(755,root,root) %{_sbindir}/rdump
