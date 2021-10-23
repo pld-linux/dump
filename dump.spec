@@ -8,13 +8,12 @@ Summary(ru.UTF-8):	Программы для резервного копиров
 Summary(tr.UTF-8):	dump/restore yedekleme sistemi
 Summary(uk.UTF-8):	Програми для резервного копіювання та відновлення файлових систем
 Name:		dump
-Version:	0.4b46
-Release:	2
+Version:	0.4b47
+Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/dump/%{name}-%{version}.tar.gz
-# Source0-md5:	4c463f797e7e8a1112fabf5cbf8e1855
-Patch0:		openssl.patch
+# Source0-md5:	620f02f1a5c5e7954a2948f0331824d2
 URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -153,7 +152,6 @@ ermt to wersja programu rmt z szyfrowaniem.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__aclocal}
@@ -178,16 +176,14 @@ MYGRP=`id -rg`
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_mandir}/man8,%{_prefix}%{_sbindir}}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install rmt/ermt $RPM_BUILD_ROOT%{_prefix}/sbin
-
 > $RPM_BUILD_ROOT%{_sysconfdir}/dumpdates
 
-ln -sf %{_sbindir}/rmt $RPM_BUILD_ROOT%{_sysconfdir}/rmt
+ln -sfr $RPM_BUILD_ROOT{%{_sbindir},%{_sysconfdir}}/rmt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -213,4 +209,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n ermt
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_prefix}/sbin/ermt
+%attr(755,root,root) %{_sbindir}/ermt
