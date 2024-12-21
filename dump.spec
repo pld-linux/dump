@@ -8,12 +8,12 @@ Summary(ru.UTF-8):	Программы для резервного копиров
 Summary(tr.UTF-8):	dump/restore yedekleme sistemi
 Summary(uk.UTF-8):	Програми для резервного копіювання та відновлення файлових систем
 Name:		dump
-Version:	0.4b47
+Version:	0.4b49
 Release:	1
 License:	BSD
 Group:		Applications/System
 Source0:	http://downloads.sourceforge.net/dump/%{name}-%{version}.tar.gz
-# Source0-md5:	620f02f1a5c5e7954a2948f0331824d2
+# Source0-md5:	66f524fae85a0b0c650b8cd9ef237187
 URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -181,7 +181,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc KNOWNBUGS MAINTAINERS NEWS README TODO 
+%doc KNOWNBUGS MAINTAINERS NEWS README TODO
 %attr(664,root,disk) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/dumpdates
 %attr(755,root,root) %{_sbindir}/dump
 %attr(755,root,root) %{_sbindir}/rdump
