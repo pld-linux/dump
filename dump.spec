@@ -18,7 +18,7 @@ URL:		http://dump.sourceforge.net/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
-BuildRequires:	e2fsprogs-devel
+BuildRequires:	e2fsprogs-devel >= 1.20.0
 BuildRequires:	libselinux-devel
 BuildRequires:	lzo-devel
 BuildRequires:	sqlite3-devel
@@ -26,6 +26,7 @@ BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	openssl-devel >= 0.9.7a
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel >= 4.2
+Requires:	e2fsprogs-libs >= 1.20.0
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
