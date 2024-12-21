@@ -157,20 +157,10 @@ ermt to wersja programu rmt z szyfrowaniem.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-MYNAME=`id -ru`
-MYGRP=`id -rg`
 %configure \
 	--enable-ermt \
 	--enable-rmt \
 	--enable-readline \
-	--with-ccopts="%{rpmcflags}" \
-	--with-ldopts="%{rpmldflags}" \
-	--with-binowner=$MYNAME \
-	--with-bingrp=$MYGRP \
-	--with-binmode=755 \
-	--with-manowner=$MYNAME \
-	--with-mangrp=$MYGRP \
-	--with-manmode=644 \
 	--disable-silent-rules
 %{__make}
 
