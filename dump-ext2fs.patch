@@ -1,0 +1,26 @@
+--- dump-0.4b51/common/sqlite_indexer.c.orig	2025-03-18 19:31:32.000000000 +0100
++++ dump-0.4b51/common/sqlite_indexer.c	2025-04-20 18:22:22.061821947 +0200
+@@ -381,11 +381,11 @@ sqlite_addInode(struct ext2_inode_large
+ 	mts[0] = 0;
+ 	cts[0] = 0;
+ 
+-	t = dp->di_atime;
++	t = dp->i_atime;
+ 	strftime(ats, sizeof ats, "%FT%T", gmtime(&t));
+-	t = dp->di_mtime;
++	t = dp->i_mtime;
+ 	strftime(mts, sizeof ats, "%FT%T", gmtime(&t));
+-	t = dp->di_ctime;
++	t = dp->i_ctime;
+ 	strftime(cts, sizeof ats, "%FT%T", gmtime(&t));
+ 
+ 	// xattr: dp->di_extraisize != 0
+@@ -394,7 +394,7 @@ sqlite_addInode(struct ext2_inode_large
+ 
+ 	snprintf(buffer, sizeof buffer,
+ 		"insert into inode(backup_id, ino, is_deleted, mode, nlink, uid, gid, rdev, size, atime, mtime, ctime, has_xattr, has_acl, volume, recno) values(1, %d, '%s', %d, %d, %d, %d, %d, %d, '%s', '%s', '%s', '%s', '%s', %d, %lld)\n",
+-		ino, "N", dp->di_mode, dp->di_nlink, dp->di_uid, dp->di_gid, dp->di_rdev, dp->di_size, ats, mts, cts, (dp->di_extraisize == 0) ? "N" : "Y", (dp->di_file_acl != 0) ? "Y" : "N", spcl.c_volume, u_spcl_c_tapea());
++		ino, "N", dp->i_mode, dp->i_links_count, dp->i_uid, dp->i_gid, 0 /* rdev? */, dp->i_size, ats, mts, cts, (dp->i_extra_isize == 0) ? "N" : "Y", (dp->i_file_acl != 0) ? "Y" : "N", spcl.c_volume, u_spcl_c_tapea());
+ 
+ 	EXEC(db, buffer);
+ 

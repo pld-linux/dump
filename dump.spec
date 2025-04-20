@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	kerberos	# Kerberos support (requires krcmd function)
+
 Summary:	Programs for backing up and restoring filesystems
 Summary(de.UTF-8):	Dump/Restore-Backup-System
 Summary(es.UTF-8):	Sistema de copia de seguridad dump/restore
@@ -8,24 +12,31 @@ Summary(ru.UTF-8):	Программы для резервного копиров
 Summary(tr.UTF-8):	dump/restore yedekleme sistemi
 Summary(uk.UTF-8):	Програми для резервного копіювання та відновлення файлових систем
 Name:		dump
-Version:	0.4b49
+Version:	0.4b51
 Release:	1
 License:	BSD
 Group:		Applications/System
-Source0:	http://downloads.sourceforge.net/dump/%{name}-%{version}.tar.gz
-# Source0-md5:	66f524fae85a0b0c650b8cd9ef237187
-URL:		http://dump.sourceforge.net/
-BuildRequires:	autoconf >= 2.57
+Source0:	https://downloads.sourceforge.net/dump/%{name}-%{version}.tar.gz
+# Source0-md5:	9d1c8e4c6ffdf729e359737d2360040c
+Patch0:		%{name}-ext2fs.patch
+URL:		https://dump.sourceforge.net/
+BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
 BuildRequires:	e2fsprogs-devel >= 1.20.0
+BuildRequires:	libblkid-devel
+BuildRequires:	libcom_err-devel
 BuildRequires:	libselinux-devel
+BuildRequires:	libstdc++-devel >= 6:8
+BuildRequires:	libtool >= 2:2
+BuildRequires:	libuuid-devel
 BuildRequires:	lzo-devel
-BuildRequires:	sqlite3-devel
 BuildRequires:	ncurses-devel >= 5.2
 BuildRequires:	openssl-devel >= 0.9.7a
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel >= 4.2
+BuildRequires:	sqlite3-devel >= 3
+BuildRequires:	zlib-devel
 Requires:	e2fsprogs-libs >= 1.20.0
 Requires:	rmt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -153,15 +164,20 @@ ermt to wersja programu rmt z szyfrowaniem.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
-%{__aclocal}
+%{__libtoolize}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-ermt \
+	%{?with_kerberos:--enable-kerberos} \
 	--enable-rmt \
 	--enable-readline \
+	--enable-selinux \
 	--disable-silent-rules
 %{__make}
 
